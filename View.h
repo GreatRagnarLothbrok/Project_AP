@@ -10,6 +10,7 @@ class View : public QGraphicsView
     Controller * controller;
 public:
     View();
+    ~View();
 };
 
 #endif // VIEW_H

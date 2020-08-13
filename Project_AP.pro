@@ -17,11 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Controller.cpp \
+    Movable.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Controller.h \
+    Movable.h \
     View.h
 
 # Default rules for deployment.

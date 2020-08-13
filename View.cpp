@@ -9,3 +9,8 @@ View::View() : QGraphicsView(), controller(new Controller)
     setScene(controller->scene);
 }
 
+View::~View()
+{
+    delete controller;
+}
+
