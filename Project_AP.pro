@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Animation.cpp \
+    CloseButton.cpp \
     Controller.cpp \
     Field.cpp \
     Movable.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 
 HEADERS += \
     Animation.h \
+    CloseButton.h \
     Controller.h \
     Field.h \
     Movable.h \
