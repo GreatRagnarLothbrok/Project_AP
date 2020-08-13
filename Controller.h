@@ -16,7 +16,7 @@ public:
     ~Controller();
 private:
     QGraphicsScene * scene;
-    QGraphicsRectItem * container;
+    QGraphicsRectItem * holder;
     QList<Movable*> movables;
 
 };

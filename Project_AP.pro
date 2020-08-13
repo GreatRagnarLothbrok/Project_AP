@@ -18,14 +18,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Animation.cpp \
     Controller.cpp \
+    Field.cpp \
     Movable.cpp \
+    Section.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Animation.h \
     Controller.h \
+    Field.h \
     Movable.h \
+    Section.h \
     View.h
 
 # Default rules for deployment.
