@@ -1,5 +1,6 @@
 #include "Animation.h"
 #include <QObject>
+#include <QDebug>
 Animation::Animation():
     Movable(10), QGraphicsPixmapItem(), animationTimer(new QTimer)
 {
@@ -18,28 +19,32 @@ Animation::~Animation()
 
 void Animation::setPicsList(const QList<QPixmap> &pics)
 {
-    animationTimer->stop();
+    if(isAnimated)
+        animationTimer->stop();
     motionPictures.clear();
     for (const auto & el : pics) {
         motionPictures.append(el);
     }
     pictureIndex = 0;
-    animationTimer->start();
+    if(isAnimated)
+        animationTimer->start();
 }
 
 void Animation::startAnimate()
 {
-    if(!animationTimer->isActive()) {
+    if(!isAnimated) {
         animationTimer->start(50);
         QObject::connect(animationTimer,SIGNAL(timeout()),this,SLOT(animate()));
+        isAnimated = true;
     }
 }
 
 void Animation::stopAnimate()
 {
-    if(animationTimer->isActive()) {
+    if(isAnimated) {
         animationTimer->stop();
         QObject::disconnect(animationTimer,SIGNAL(timeout()),this,SLOT(animate()));
+        isAnimated = false;
     }
 }
 
