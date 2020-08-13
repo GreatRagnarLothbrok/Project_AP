@@ -1,11 +1,16 @@
 #ifndef CLOSEBUTTON_H
 #define CLOSEBUTTON_H
-
-
-class CloseButton
+#include<QGraphicsPixmapItem>
+#include<QGraphicsSceneMouseEvent>
+#include"View.h"
+class CloseButton:public QGraphicsPixmapItem
 {
 public:
-    CloseButton();
+    CloseButton(View *view);
+private:
+    View *view;
+private slots:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // CLOSEBUTTON_H
