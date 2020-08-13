@@ -1,5 +1,6 @@
 #include "View.h"
 #include"CloseButton.h"
+#include"ResizeButton.h"
 View::View() : QGraphicsView(), controller(new Controller)
 {
     //set Background
@@ -13,6 +14,10 @@ View::View() : QGraphicsView(), controller(new Controller)
     auto closeButton=new CloseButton(this);
     closeButton->setPos(1830,20);
     controller->scene->addItem(closeButton);
+    //set ResizeButton
+    auto resizeButton=new ResizeButton(this);
+    resizeButton->setPos(1710,15);
+    controller->scene->addItem(resizeButton);
 }
 
 View::~View()
