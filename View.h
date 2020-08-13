@@ -11,6 +11,7 @@ class View : public QGraphicsView
 public:
     View();
     ~View();
+
 };
 
 #endif // VIEW_H

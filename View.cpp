@@ -1,6 +1,7 @@
 #include "View.h"
 #include"CloseButton.h"
 #include"ResizeButton.h"
+#include"Zombi.h"
 View::View() : QGraphicsView(), controller(new Controller)
 {
     //set Background
@@ -18,6 +19,7 @@ View::View() : QGraphicsView(), controller(new Controller)
     auto resizeButton=new ResizeButton(this);
     resizeButton->setPos(1710,15);
     controller->scene->addItem(resizeButton);
+
 }
 
 View::~View()
