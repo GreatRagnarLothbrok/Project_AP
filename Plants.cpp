@@ -1,6 +1,12 @@
 #include "Plants.h"
 
-Plants::Plants()
+Plants::Plants():Animation()
+{
+//set pic
+
+}
+
+void Plants::checkLiving()
 {
 
 }

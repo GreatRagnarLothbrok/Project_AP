@@ -1,2 +1,62 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/Background">
+        <file>BackGround/BackGround.jpg</file>
+        <file>BackGround/Close.png</file>
+        <file>BackGround/resize.png</file>
+        <file>BackGround/Resize.png</file>
+        <file>BackGround/Shovel.png</file>
+    </qresource>
+    <qresource prefix="/Zombi">
+        <file>zombie/0.jpg</file>
+        <file>zombie/1.jpg</file>
+        <file>zombie/2.jpg</file>
+        <file>zombie/3.jpg</file>
+        <file>zombie/4.jpg</file>
+        <file>zombie/5.jpg</file>
+        <file>zombie/6.jpg</file>
+        <file>zombie/7.jpg</file>
+        <file>zombie/8.jpg</file>
+        <file>zombie/9.jpg</file>
+        <file>zombie/10.jpg</file>
+        <file>zombie/11.jpg</file>
+        <file>zombie/12.jpg</file>
+        <file>zombie/13.jpg</file>
+        <file>zombie/14.jpg</file>
+        <file>zombie/15.jpg</file>
+        <file>zombie/16.jpg</file>
+        <file>zombie/17.jpg</file>
+        <file>zombie/18.jpg</file>
+        <file>zombie/19.jpg</file>
+        <file>zombie/20.jpg</file>
+        <file>zombie/21.jpg</file>
+        <file>zombie/22.jpg</file>
+        <file>zombie/23.jpg</file>
+        <file>zombie/24.jpg</file>
+        <file>zombie/25.jpg</file>
+        <file>zombie/26.jpg</file>
+        <file>zombie/27.jpg</file>
+        <file>zombie/28.jpg</file>
+    </qresource>
+    <qresource prefix="/Plants">
+        <file>Plants/pea.png</file>
+        <file>Plants/shooter.png</file>
+        <file>Plants/sun.png</file>
+        <file>Plants/Sunflower.png</file>
+        <file>Plants/Wall/wall0.png</file>
+        <file>Plants/Wall/wall1.png</file>
+        <file>Plants/Wall/wall2.png</file>
+        <file>Plants/Wall/wall3.png</file>
+        <file>Plants/Wall/wall4.png</file>
+        <file>Plants/Wall/wall5.png</file>
+        <file>Plants/Wall/wall6.png</file>
+        <file>Plants/Wall/wall7.png</file>
+        <file>Plants/Wall/wall8.png</file>
+        <file>Plants/Wall/wall9.png</file>
+        <file>Plants/Wall/wall10.png</file>
+        <file>Plants/Wall/wall11.png</file>
+        <file>Plants/Wall/wall12.png</file>
+        <file>Plants/Wall/wall13.png</file>
+        <file>Plants/Wall/wall14.png</file>
+        <file>Plants/Wall/wall15.png</file>
+    </qresource>
+</RCC>

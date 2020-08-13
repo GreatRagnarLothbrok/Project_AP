@@ -20,8 +20,10 @@ SOURCES += \
     Controller.cpp \
     Field.cpp \
     Movable.cpp \
+    Plants.cpp \
     Section.cpp \
     View.cpp \
+    Zombi.cpp \
     main.cpp
 
 HEADERS += \
@@ -29,10 +31,15 @@ HEADERS += \
     Controller.h \
     Field.h \
     Movable.h \
+    Plants.h \
     Section.h \
-    View.h
+    View.h \
+    Zombi.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    PVZ.qrc
