@@ -18,6 +18,11 @@ livingTimer->start(50);
 QObject::connect(livingTimer,SIGNAL(timeout()),this,SLOT(checkLiving()));
 }
 
+void Zombi::damage()
+{
+    lifePoint--;
+}
+
 void Zombi::move()
 {
     setPos(x()-2,y());

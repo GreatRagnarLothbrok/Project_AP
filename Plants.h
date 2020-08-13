@@ -7,8 +7,9 @@ class Plants:public Animation
     Q_OBJECT
 public:
     Plants();
+protected slots:
+    virtual void checkColliding();
 private slots:
-    virtual void checkLiving();
     void move();
 };
 

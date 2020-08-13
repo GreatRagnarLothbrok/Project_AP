@@ -3,14 +3,14 @@
 Plants::Plants():Animation()
 {
 //set pic
-    setPixmap(QPixmap(":/Plants/Plants/Sunflower.png"));
+
 //Timer
     auto livingTimer=new QTimer;
     livingTimer->start(50);
-    QObject::connect(livingTimer,SIGNAL(timeout()),this,SLOT(checkLiving()));
+    QObject::connect(livingTimer,SIGNAL(timeout()),this,SLOT(checkColliding()));
 }
 
-void Plants::checkLiving()
+void Plants::checkColliding()
 {
 QList<QGraphicsItem*> listItems=collidingItems();
 for(const auto &item:listItems){

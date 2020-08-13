@@ -7,6 +7,7 @@ class Zombi:public Animation
     Q_OBJECT
 public:
     Zombi();
+    void damage();
 private:
     int lifePoint;
 private slots:

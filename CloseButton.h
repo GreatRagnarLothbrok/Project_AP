@@ -6,7 +6,7 @@
 class CloseButton:public QGraphicsPixmapItem
 {
 public:
-    CloseButton(View *view);
+    CloseButton( View *view);
 private:
     View *view;
 private slots:
