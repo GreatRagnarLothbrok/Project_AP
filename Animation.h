@@ -19,7 +19,6 @@ protected:
     QTimer * animationTimer;
 private:
     QList<QPixmap> motionPictures;
-    bool isAnimated = false;
     int pictureIndex;
 public slots:
     void animate();
