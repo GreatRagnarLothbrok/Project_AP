@@ -14,6 +14,7 @@ class Controller
 public:
     Controller();
     ~Controller();
+    void addItem(QGraphicsItem *item);
 private:
     QGraphicsScene * scene;
     QGraphicsRectItem * holder;

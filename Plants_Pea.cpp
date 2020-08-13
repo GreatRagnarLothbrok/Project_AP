@@ -1,6 +1,6 @@
 #include "Plants_Pea.h"
 #include"Zombi.h"
-Plants_Pea::Plants_Pea():Plants()
+Plants_Pea::Plants_Pea():Plants(0)
 {
 //set pic
     setPixmap(QPixmap(":/Plants/Plants/pea.png"));
@@ -9,7 +9,7 @@ Plants_Pea::Plants_Pea():Plants()
 void Plants_Pea::checkColliding()
 {QList<QGraphicsItem*> listItems=collidingItems();
     for(const auto &item:listItems){
-    if(typeid(dynamic_cast<Zombi*>(item))==typeid(Zombi*))
+    if(dynamic_cast<Zombi*>(item))
     {
         dynamic_cast<Zombi*>(item)->damage();
         delete this;
@@ -21,5 +21,5 @@ void Plants_Pea::checkColliding()
 
 void Plants_Pea::move()
 {
-    setPos(x()+5,y());
+    setPos(x()+6,y());
 }

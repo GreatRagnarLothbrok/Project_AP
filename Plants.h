@@ -1,12 +1,16 @@
 #ifndef PLANTS_H
 #define PLANTS_H
 #include"Animation.h"
-
+#include "Controller.h"
 class Plants:public Animation
 {
     Q_OBJECT
 public:
-    Plants();
+    Plants(int price);
+    int getPrice();
+private:
+    int price;
+
 protected slots:
     virtual void checkColliding();
 private slots:

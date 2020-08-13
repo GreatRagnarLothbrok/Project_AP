@@ -23,6 +23,7 @@ SOURCES += \
     Movable.cpp \
     Plants.cpp \
     Plants_Pea.cpp \
+    Plants_Shooter.cpp \
     ResizeButton.cpp \
     Section.cpp \
     View.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     Movable.h \
     Plants.h \
     Plants_Pea.h \
+    Plants_Shooter.h \
     ResizeButton.h \
     Section.h \
     View.h \

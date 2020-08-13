@@ -2,6 +2,7 @@
 #include"Zombi.h"
 #include"Plants.h"
 #include"Plants_Pea.h"
+#include"Plants_Shooter.h"
 Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080))
 {
     holder = new QGraphicsRectItem(0,0,scene->width(),scene->height());
@@ -16,4 +17,9 @@ Controller::~Controller()
 {
     delete scene;
     delete holder;
+}
+
+void Controller::addItem(QGraphicsItem *item)
+{
+    scene->addItem(item);
 }
