@@ -3,10 +3,10 @@
 #include <Animation.h>
 #include <QGraphicsSceneMouseEvent>
 
-class Platns_Sun:public Animation
+class Plants_Sun:public Animation
 {
 public:
-    Platns_Sun(Controller *controller);
+    Plants_Sun(Controller *controller);
 private:
     Controller *controller;
 private slots:

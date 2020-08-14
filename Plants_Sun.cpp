@@ -1,13 +1,13 @@
-#include "Platns_Sun.h"
+#include "Plants_Sun.h"
 
-Platns_Sun::Platns_Sun(Controller *controller):Animation()
+Plants_Sun::Plants_Sun(Controller *controller):Animation()
 {
     //set pic
     setPixmap(QPixmap(":/Plants/Plants/sun.png"));
     this->controller=controller;
 }
 
-void Platns_Sun::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Plants_Sun::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event->button()==Qt::LeftButton){
         controller->addSun();
@@ -16,7 +16,7 @@ void Platns_Sun::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-void Platns_Sun::move()
+void Plants_Sun::move()
 {
 
 }

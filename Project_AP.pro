@@ -24,7 +24,8 @@ SOURCES += \
     Plants.cpp \
     Plants_Pea.cpp \
     Plants_Shooter.cpp \
-    Platns_Sun.cpp \
+    Plants_Sun.cpp \
+    Plants_Sunflower.cpp \
     ResizeButton.cpp \
     Section.cpp \
     Show_Sun_Score.cpp \
@@ -41,7 +42,8 @@ HEADERS += \
     Plants.h \
     Plants_Pea.h \
     Plants_Shooter.h \
-    Platns_Sun.h \
+    Plants_Sun.h \
+    Plants_Sunflower.h \
     ResizeButton.h \
     Section.h \
     Show_Sun_Score.h \
