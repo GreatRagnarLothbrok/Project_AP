@@ -1,6 +1,6 @@
 #include "Field.h"
 
-Field::Field(int x, int y,int row,int column): posX(x), posY(y), row(row), column(column)
+Field::Field(int x, int y,int row,int column,QGraphicsRectItem * parent): posX(x), posY(y), row(row), column(column)
 {
     rects = new Section*[row];
     for (int i = 0;i < row;++i) {
@@ -9,6 +9,7 @@ Field::Field(int x, int y,int row,int column): posX(x), posY(y), row(row), colum
             rects[i][j].setPos(x,y);
             rects[i][j].setPen(QPen(QBrush(Qt::black),-1));
             rects[i][j].setRow(i); rects[i][j].setColumn(j);
+            rects[i][j].setParentItem(parent);
             x += 100;
         }
         x = posX;

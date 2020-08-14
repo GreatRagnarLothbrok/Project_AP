@@ -11,6 +11,7 @@ class View : public QGraphicsView
 public:
     View();
     ~View();
+    void mouseMoveEvent(QMouseEvent *event);
 
 };
 

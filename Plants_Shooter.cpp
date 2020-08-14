@@ -1,6 +1,6 @@
 #include "Plants_Shooter.h"
 #include"Plants_Pea.h"
-Plants_Shooter::Plants_Shooter(Controller *controller):Plants(100)
+Plants_Shooter::Plants_Shooter(Controller *controller):Plants(100), controller(controller)
 {
 //set pic
     setPixmap(QPixmap(":/Plants/Plants/shooter.png"));

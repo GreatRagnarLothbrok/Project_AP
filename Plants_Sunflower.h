@@ -2,6 +2,7 @@
 #define PLANTS_SUNFLOWER_H
 #include "Plants.h"
 #include"Plants_Sun.h"
+#include "Controller.h"
 class Plants_Sunflower:public Plants
 {
     Q_OBJECT

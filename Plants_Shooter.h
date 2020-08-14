@@ -1,6 +1,7 @@
 #ifndef PLANTS_SHOOTER_H
 #define PLANTS_SHOOTER_H
 #include"Plants.h"
+#include "Controller.h"
 class Plants_Shooter:public Plants
 {
     Q_OBJECT

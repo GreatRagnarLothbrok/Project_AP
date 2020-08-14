@@ -1,7 +1,7 @@
 #ifndef PLANTS_WALL_H
 #define PLANTS_WALL_H
 #include"Plants.h"
-
+#include "Controller.h"
 class Plants_Wall:public Plants
 {
 public:

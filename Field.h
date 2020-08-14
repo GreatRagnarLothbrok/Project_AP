@@ -6,7 +6,7 @@
 class Field
 {
 public:
-    Field(int x, int y, int row, int column);
+    Field(int x, int y, int row, int column,QGraphicsRectItem * parent);
     void addToScene(QGraphicsScene * scene);
 private:
     Section** rects;

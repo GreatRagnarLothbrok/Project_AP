@@ -5,6 +5,7 @@
         <file>BackGround/resize.png</file>
         <file>BackGround/Resize.png</file>
         <file>BackGround/Shovel.png</file>
+        <file>BackGround/barezombie.png</file>
     </qresource>
     <qresource prefix="/Zombi">
         <file>zombie/0.jpg</file>
@@ -58,5 +59,11 @@
         <file>Plants/Wall/wall13.png</file>
         <file>Plants/Wall/wall14.png</file>
         <file>Plants/Wall/wall15.png</file>
+    </qresource>
+    <qresource prefix="/cards">
+        <file>Cards/CherryBombCard.png</file>
+        <file>Cards/PeashooterCard.png</file>
+        <file>Cards/SunflowerCard.png</file>
+        <file>Cards/WalnutCard.png</file>
     </qresource>
 </RCC>

@@ -6,7 +6,6 @@
 #include <QList>
 #include <QTimer>
 #include "Movable.h"
-#include"Controller.h"
 class Animation :public Movable, public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -21,6 +20,7 @@ protected:
 private:
     QList<QPixmap> motionPictures;
     int pictureIndex;
+    bool animationStarted = false;
 public slots:
     void animate();
 };

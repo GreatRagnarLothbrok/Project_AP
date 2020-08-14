@@ -18,28 +18,30 @@ Animation::~Animation()
 
 void Animation::setPicsList(const QList<QPixmap> &pics)
 {
-    animationTimer->stop();
+    stopAnimate();
     motionPictures.clear();
     for (const auto & el : pics) {
         motionPictures.append(el);
     }
     pictureIndex = 0;
-    animationTimer->start();
+    startAnimate();
 }
 
 void Animation::startAnimate()
 {
-    if(!animationTimer->isActive()) {
+    if(!animationStarted) {
         animationTimer->start(50);
         QObject::connect(animationTimer,SIGNAL(timeout()),this,SLOT(animate()));
+        animationStarted = true;
     }
 }
 
 void Animation::stopAnimate()
 {
-    if(animationTimer->isActive()) {
+    if(animationStarted) {
         animationTimer->stop();
         QObject::disconnect(animationTimer,SIGNAL(timeout()),this,SLOT(animate()));
+        animationStarted = false;
     }
 }
 

@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Animation.cpp \
+    Card.cpp \
     CloseButton.cpp \
     Controller.cpp \
     Field.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
 
 HEADERS += \
     Animation.h \
+    Card.h \
     CloseButton.h \
     Controller.h \
     Field.h \

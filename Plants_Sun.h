@@ -2,7 +2,7 @@
 #define PLATNS_SUN_H
 #include <Animation.h>
 #include <QGraphicsSceneMouseEvent>
-
+#include "Controller.h"
 class Plants_Sun:public Animation
 {
 public:

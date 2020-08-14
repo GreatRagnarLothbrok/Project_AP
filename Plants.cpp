@@ -1,5 +1,7 @@
 #include "Plants.h"
 #include"Zombi.h"
+#include "Section.h"
+#include <QDebug>
 Plants::Plants(int price):Animation()
 {
 //set pic
@@ -17,9 +19,9 @@ int Plants::getPrice()
 
 void Plants::checkColliding()
 {
-QList<QGraphicsItem*> listItems=collidingItems();
+QList<QGraphicsItem*> listItems = collidingItems();
 for( auto item:listItems){
-if(dynamic_cast<Zombi*>(item))
+if(dynamic_cast<Zombi*>(item)&&isPlaced)
 {
     delete this;
     return;
@@ -30,4 +32,26 @@ if(dynamic_cast<Zombi*>(item))
 void Plants::move()
 {
 //empty
+}
+
+void Plants::setPosition()
+{
+    QList<QGraphicsItem*> items = collidingItems();
+    for (auto el : items) {
+        if (typeid(*el) == typeid(Section)) {
+            auto rect = dynamic_cast<Section*>(el);
+            if (rect->isEmpty()) {
+                qInfo() << "Placed" ;
+                setPos(el->pos());
+                rect->setPlant(this);
+                return;
+            }
+        }
+    }
+    delete this;
+}
+
+void Plants::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    setPosition();
 }
