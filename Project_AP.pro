@@ -24,8 +24,10 @@ SOURCES += \
     Plants.cpp \
     Plants_Pea.cpp \
     Plants_Shooter.cpp \
+    Platns_Sun.cpp \
     ResizeButton.cpp \
     Section.cpp \
+    Show_Sun_Score.cpp \
     View.cpp \
     Zombi.cpp \
     main.cpp
@@ -39,8 +41,10 @@ HEADERS += \
     Plants.h \
     Plants_Pea.h \
     Plants_Shooter.h \
+    Platns_Sun.h \
     ResizeButton.h \
     Section.h \
+    Show_Sun_Score.h \
     View.h \
     Zombi.h
 

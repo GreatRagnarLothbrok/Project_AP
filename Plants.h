@@ -1,7 +1,6 @@
 #ifndef PLANTS_H
 #define PLANTS_H
 #include"Animation.h"
-#include "Controller.h"
 class Plants:public Animation
 {
     Q_OBJECT

@@ -6,6 +6,7 @@
 #include <QList>
 #include <QTimer>
 #include "Movable.h"
+#include"Controller.h"
 class Animation :public Movable, public QGraphicsPixmapItem
 {
     Q_OBJECT
