@@ -9,9 +9,18 @@ public:
     int getPrice();
     void setPosition();
     void setPlaced(){isPlaced = true;}
+
+    int getRow() const;
+    void setRow(int value);
+
+    int getColumn() const;
+    void setColumn(int value);
+
 private:
     int price;
     bool isPlaced = false;
+    int row;
+    int column;
 protected slots:
     virtual void checkColliding();
 private slots:

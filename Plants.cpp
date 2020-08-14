@@ -44,11 +44,33 @@ void Plants::setPosition()
                 qInfo() << "Placed" ;
                 setPos(el->pos());
                 rect->setPlant(this);
+                column=rect->getColumn();
+                row=rect->getRow();
                 return;
             }
         }
     }
     delete this;
+}
+
+int Plants::getRow() const
+{
+    return row;
+}
+
+void Plants::setRow(int value)
+{
+    row = value;
+}
+
+int Plants::getColumn() const
+{
+    return column;
+}
+
+void Plants::setColumn(int value)
+{
+    column = value;
 }
 
 void Plants::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
