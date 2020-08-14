@@ -7,7 +7,8 @@ Plants_Pea::Plants_Pea():Plants(0)
 }
 
 void Plants_Pea::checkColliding()
-{QList<QGraphicsItem*> listItems=collidingItems();
+{
+    QList<QGraphicsItem*> listItems=collidingItems();
     for(const auto &item:listItems){
     if(dynamic_cast<Zombi*>(item))
     {

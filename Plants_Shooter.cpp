@@ -4,6 +4,7 @@ Plants_Shooter::Plants_Shooter(Controller *controller):Plants(100)
 {
 //set pic
     setPixmap(QPixmap(":/Plants/Plants/shooter.png"));
+    //set timer
     auto shooter_Timer=new QTimer;
     shooter_Timer->start(1000);
     QObject::connect(shooter_Timer,SIGNAL(timeout()),this,SLOT(shot()));
