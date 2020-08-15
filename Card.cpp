@@ -21,6 +21,7 @@ Card::Card(Controller * controller, char type) : controller(controller), type(ty
 }
 
 
+
 void Card::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if (type == 0) {
@@ -33,7 +34,7 @@ void Card::mousePressEvent(QGraphicsSceneMouseEvent *event)
         controller->takePlant(new Plants_Wall);
     }
     else if(type == 3) {
-
+        //controller->takePlant(new Plants_CherryBomb);
     }
 
 
