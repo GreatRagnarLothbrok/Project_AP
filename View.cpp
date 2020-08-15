@@ -4,11 +4,14 @@
 #include "Card.h"
 #include "Plants_Shooter.h"
 #include "Zombi.h"
+#include "Shovel.h"
+#include <QCursor>
 
 
 View::View() : QGraphicsView(), controller(new Controller)
 {
     //set Background
+    setMouseTracking(true);
     setFixedSize(1920,1080);
     showFullScreen();
     setBackgroundBrush(QBrush(QImage(":/Background/BackGround/BackGround.jpg")));
@@ -23,11 +26,6 @@ View::View() : QGraphicsView(), controller(new Controller)
     auto resizeButton=new ResizeButton(this);
     resizeButton->setPos(1710,15);
     controller->scene->addItem(resizeButton);
-    auto bar = new QGraphicsPixmapItem(QPixmap(":/Background/BackGround/barezombie.png"));
-    controller->scene->addItem(bar);
-    auto card = new Card(controller);
-    card->setPos(150,0);
-    controller->scene->addItem(card);
 }
 
 View::~View()
@@ -38,7 +36,8 @@ View::~View()
 void View::mouseMoveEvent(QMouseEvent *event)
 {
     if (controller->selectedPlant != nullptr) {
-        controller->selectedPlant->setPos(event->pos());
+        controller->selectedPlant->setPos(QCursor::pos().x() - (controller->selectedPlant->boundingRect().width ()/2),
+                                          QCursor::pos().y() - (controller->selectedPlant->boundingRect().height()/2));
     }
     QGraphicsView::mouseMoveEvent(event);
 }

@@ -6,10 +6,14 @@
 #include"Plants_Sun.h"
 #include"Plants_Sunflower.h"
 #include"Plants_Wall.h"
-
+#include "Shovel.h"
+#include "Card.h"
+#include <QCursor>
 Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score)
 {
-    score->setPos(200,60);
+    auto bar = new QGraphicsPixmapItem(QPixmap(":/Background/BackGround/barezombie.png"));
+    addItem(bar);
+    score->setPos(0,100);
     scene->addItem(score);
     holder = new QGraphicsRectItem(0,0,scene->width(),scene->height());
     field = new Field(700,300,5,8,holder);
@@ -18,6 +22,13 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     scene->addItem(zombi1);
     zombi1->start();
     field->addToScene(scene);
+    auto card = new Card(this);
+    card->setPos(150,0);
+    addItem(card);
+    auto shovel = new Shovel(this,holder);
+    shovel->setPos(900,0);
+    addItem(shovel);
+
 //auto sunFlower=new Plants_Wall();
 //sunFlower->setPos(200,600);
 //sunFlower->start();
@@ -42,6 +53,7 @@ void Controller::addSun()
 
 void Controller::takePlant(Plants *plant)
 {
+    plant->setPos(QCursor::pos().x() - (plant->boundingRect().width()/2),QCursor::pos().y() - (plant->boundingRect().height()/2) );
     scene->addItem(plant);
     selectedPlant = plant;
 }
@@ -56,5 +68,10 @@ void Controller::addToField()
     selectedPlant->setPosition();
     selectedPlant->setPlaced();
     selectedPlant = nullptr;
+}
+
+void Controller::pickShovel()
+{
+    shovelPicked = true;
 }
 

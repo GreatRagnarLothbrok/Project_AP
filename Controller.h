@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "Plants.h"
+
 #include"Show_Sun_Score.h"
 
 class Controller
@@ -20,6 +21,7 @@ public:
     void takePlant(Plants * plant);
     Plants *getSelectedPlant();
     void addToField();
+    void pickShovel();
 private:
     QGraphicsScene * scene;
     QGraphicsRectItem * holder;
@@ -27,6 +29,7 @@ private:
     Show_Sun_Score *score;
     Field *field;
     Plants * selectedPlant = nullptr;
+    bool shovelPicked = false;
 };
 
 #endif // CONTROLLER_H

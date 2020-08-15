@@ -19,14 +19,14 @@ int Plants::getPrice()
 
 void Plants::checkColliding()
 {
-QList<QGraphicsItem*> listItems = collidingItems();
-for( auto item:listItems){
-if(dynamic_cast<Zombi*>(item)&&isPlaced)
-{
-    delete this;
-    return;
-}
-}
+    QList<QGraphicsItem*> listItems = collidingItems();
+    for( auto item:listItems){
+        if(dynamic_cast<Zombi*>(item)&&isPlaced)
+            {
+                delete this;
+                return;
+        }
+    }
 }
 
 void Plants::move()

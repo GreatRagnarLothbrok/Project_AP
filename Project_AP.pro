@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,6 +30,7 @@ SOURCES += \
     Plants_Wall.cpp \
     ResizeButton.cpp \
     Section.cpp \
+    Shovel.cpp \
     Show_Sun_Score.cpp \
     View.cpp \
     Zombi.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     Plants_Wall.h \
     ResizeButton.h \
     Section.h \
+    Shovel.h \
     Show_Sun_Score.h \
     View.h \
     Zombi.h

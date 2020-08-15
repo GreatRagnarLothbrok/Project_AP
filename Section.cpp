@@ -2,7 +2,7 @@
 
 #include <QPen>
 
-Section::Section() : QGraphicsRectItem(0,0,90,110)
+Section::Section() : QGraphicsRectItem(0,0,90,100)
 {
 
 }
@@ -20,6 +20,14 @@ void Section::setColumn(int value)
 void Section::setPlant(Plants *value)
 {
     plant = value;
+}
+
+void Section::destroy()
+{
+    if(!isEmpty()) {
+        delete plant;
+        plant = nullptr;
+    }
 }
 
 int Section::getRow() const

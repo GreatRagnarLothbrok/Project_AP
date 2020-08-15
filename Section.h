@@ -15,6 +15,7 @@ public:
     void setColumn(int value);
     bool isEmpty() {return plant == nullptr;}
     void setPlant(Plants *value);
+    void destroy();
 private:
     int row;
     int column;

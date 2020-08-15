@@ -22,5 +22,9 @@ void Plants_Pea::checkColliding()
 
 void Plants_Pea::move()
 {
+    if (x() >= scene()->width()) {
+        delete this;
+        return;
+    }
     setPos(x()+6,y());
 }
