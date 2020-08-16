@@ -5,13 +5,16 @@
 #include "Controller.h"
 class Plants_Sun:public Animation
 {
+    Q_OBJECT
 public:
-    Plants_Sun(Controller *controller);
+    Plants_Sun(Controller *controller,bool check);
 private:
     Controller *controller;
+    bool checkMove;
 private slots:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void move();
+    void destroy();
 };
 
 #endif // PLATNS_SUN_H

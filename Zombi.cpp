@@ -9,8 +9,8 @@ QList<QPixmap> qlist;
 for(int i=0;i<29;i++){
     qlist.append(QPixmap(":/Zombi/zombie/"+QString::number(i)+".jpg"));
 }
-//setPicsList(qlist);
-setPixmap(qlist.at(1));
+setPicsList(qlist);
+//setPixmap(qlist.at(1));
 //Qtimer
 auto livingTimer=new QTimer;
 livingTimer->start(50);
@@ -25,7 +25,7 @@ void Zombi::damage()
 
 void Zombi::move()
 {
-    setPos(x()-2,y());
+    setPos(x()-1,y());
 }
 
 void Zombi::checkLiving()

@@ -7,8 +7,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "Plants.h"
-
-#include"Show_Sun_Score.h"
+#include "Show_Sun_Score.h"
 
 class Controller
 {

@@ -23,7 +23,9 @@ SOURCES += \
     Field.cpp \
     Movable.cpp \
     Plants.cpp \
+    Plants_CherryBomb.cpp \
     Plants_Pea.cpp \
+    Plants_RandomSun.cpp \
     Plants_Shooter.cpp \
     Plants_Sun.cpp \
     Plants_Sunflower.cpp \
@@ -34,7 +36,7 @@ SOURCES += \
     Show_Sun_Score.cpp \
     View.cpp \
     Zombi.cpp \
-    main.cpp
+    main.cpp \
 
 HEADERS += \
     Animation.h \
@@ -44,7 +46,9 @@ HEADERS += \
     Field.h \
     Movable.h \
     Plants.h \
+    Plants_CherryBomb.h \
     Plants_Pea.h \
+    Plants_RandomSun.h \
     Plants_Shooter.h \
     Plants_Sun.h \
     Plants_Sunflower.h \

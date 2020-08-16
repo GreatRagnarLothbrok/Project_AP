@@ -7,14 +7,14 @@ Plants_Sunflower::Plants_Sunflower(Controller *controller):Plants(50)
     setPixmap(QPixmap(":/Plants/Plants/Sunflower.png"));
     //set timer
     QTimer *addSunTimer=new QTimer;
-    addSunTimer->start(1000);
+    addSunTimer->start(15000);
 
 QObject::connect(addSunTimer,SIGNAL(timeout()),this,SLOT(buildSun()));
 }
 
 void Plants_Sunflower::buildSun()
 {
-    auto sun=new Plants_Sun(controller);
+    auto sun=new Plants_Sun(controller,false);
     sun->setPos(x(),y());
 
     controller->addItem(sun);

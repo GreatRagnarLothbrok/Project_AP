@@ -4,11 +4,11 @@ Plants_Wall::Plants_Wall():Plants(150)
 {
 //set piclist
     QList<QPixmap> qlist;
-    for(int i=0;i<29;i++){
+    for(int i=0;i<16;i++){
         qlist.append(QPixmap(":/Plants/Plants/Wall/wall"+QString::number(i)+".png"));
     }
-    //setPicsList(qlist);
-    setPixmap(QPixmap(":/Plants/Plants/Wall/wall0.png"));
+    setPicsList(qlist);
+    //setPixmap(QPixmap(":/Plants/Plants/Wall/wall0.png"));
 }
 
 void Plants_Wall::checkColliding()
@@ -18,6 +18,7 @@ void Plants_Wall::checkColliding()
         if(dynamic_cast<Zombi*>(item))
            delete dynamic_cast<Zombi*>(item);
         }
+        return;
 }
 
 void Plants_Wall::move()

@@ -59,6 +59,8 @@
         <file>Plants/Wall/wall13.png</file>
         <file>Plants/Wall/wall14.png</file>
         <file>Plants/Wall/wall15.png</file>
+        <file>Plants/Cherry_Bomb.png</file>
+        <file>Plants/bomb.png</file>
     </qresource>
     <qresource prefix="/cards">
         <file>Cards/CherryBombCard.png</file>

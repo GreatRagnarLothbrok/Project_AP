@@ -41,7 +41,7 @@ void Plants::setPosition()
         if (typeid(*el) == typeid(Section)) {
             auto rect = dynamic_cast<Section*>(el);
             if (rect->isEmpty()) {
-                qInfo() << "Placed" ;
+             //   qInfo() << "Placed" ;
                 setPos(el->pos());
                 rect->setPlant(this);
                 column=rect->getColumn();
