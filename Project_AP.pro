@@ -17,8 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Animation.cpp \
+    Button_Close.cpp \
+    Button_Pause.cpp \
+    Button_Resize.cpp \
     Card.cpp \
-    CloseButton.cpp \
     Controller.cpp \
     Field.cpp \
     Movable.cpp \
@@ -30,7 +32,6 @@ SOURCES += \
     Plants_Sun.cpp \
     Plants_Sunflower.cpp \
     Plants_Wall.cpp \
-    ResizeButton.cpp \
     Section.cpp \
     Shovel.cpp \
     Show_Sun_Score.cpp \
@@ -40,8 +41,10 @@ SOURCES += \
 
 HEADERS += \
     Animation.h \
+    Button_Close.h \
+    Button_Pause.h \
+    Button_Resize.h \
     Card.h \
-    CloseButton.h \
     Controller.h \
     Field.h \
     Movable.h \
@@ -53,7 +56,6 @@ HEADERS += \
     Plants_Sun.h \
     Plants_Sunflower.h \
     Plants_Wall.h \
-    ResizeButton.h \
     Section.h \
     Shovel.h \
     Show_Sun_Score.h \

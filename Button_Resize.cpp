@@ -1,13 +1,13 @@
-#include "ResizeButton.h"
+#include "Button_Resize.h"
 
-ResizeButton::ResizeButton(View *view):QGraphicsPixmapItem()
+Button_Resize::Button_Resize(View *view):QGraphicsPixmapItem()
 {
 //set pic
     setPixmap(QPixmap(":/Background/BackGround/resize.png"));
     this->view=view;
 }
 
-void ResizeButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Button_Resize::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event->button()==Qt::LeftButton){
         if(view->isFullScreen())

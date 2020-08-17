@@ -3,7 +3,7 @@
 Animation::Animation():
     Movable(10), QGraphicsPixmapItem(), animationTimer(new QTimer)
 {
-
+    isStop=false;
     pictureIndex = 0;
     if (!motionPictures.empty())
         setPixmap(motionPictures[pictureIndex]);
@@ -12,6 +12,16 @@ Animation::Animation():
 Animation::~Animation()
 {
     delete animationTimer;
+}
+
+void Animation::customStop()
+{
+    stopAnimate();
+}
+
+void Animation::customStart()
+{
+    startAnimate();
 }
 
 

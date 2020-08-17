@@ -15,7 +15,6 @@ public:
 
     int getColumn() const;
     void setColumn(int value);
-
 private:
     int price;
     bool isPlaced = false;

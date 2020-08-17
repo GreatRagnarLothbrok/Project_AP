@@ -9,8 +9,7 @@
 #include "Shovel.h"
 #include "Card.h"
 #include <QCursor>
-#include "Plants_RandomSun.h"
-
+#include<QDebug>
 Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score)
 {
     auto bar = new QGraphicsPixmapItem(QPixmap(":/Background/BackGround/barezombie.png"));
@@ -19,13 +18,17 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     scene->addItem(score);
     holder = new QGraphicsRectItem(0,0,scene->width(),scene->height());
     field = new Field(700,300,5,8,holder);
+    //set picStop
+    stopPic=new QGraphicsPixmapItem;
+    stopPic->setPixmap(QPixmap(":/Background/BackGround/stop.png"));
+    stopPic->setPos(0,0);
     //add zombi
-    for(int i=0;i<10;i++){
     auto zombi1=new Zombi;
-    zombi1->setPos(1500,i*100);
+    zombi1->setPos(1500,650);
     scene->addItem(zombi1);
     zombi1->start();
-    }
+    movables.append(zombi1);
+    isStop=false;
     field->addToScene(scene);
     //add card
     auto shooterCard = new Card(this);
@@ -44,8 +47,8 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     auto shovel = new Shovel(this,holder);
     shovel->setPos(900,0);
     addItem(shovel);
-//random sun
-  Plants_RandomSun*  randomSun=new Plants_RandomSun(this);
+    //random sun
+    randomSun=new Plants_RandomSun(score,scene);
 
 //auto sunFlower=new Plants_Wall();
 //sunFlower->setPos(200,600);
@@ -66,7 +69,7 @@ void Controller::addItem(QGraphicsItem *item)
 
 void Controller::addSun()
 {
-    score->getSun();
+    score->increase();
 }
 
 void Controller::takePlant(Plants *plant)
@@ -74,6 +77,7 @@ void Controller::takePlant(Plants *plant)
 
     plant->setPos(QCursor::pos().x() - (plant->boundingRect().width()/2),QCursor::pos().y() - (plant->boundingRect().height()/2) );
     plant->start();
+    movables.append(plant);
     scene->addItem(plant);
     selectedPlant = plant;
 }
@@ -93,5 +97,49 @@ void Controller::addToField()
 void Controller::pickShovel()
 {
     shovelPicked = true;
+}
+
+bool Controller::chechPlants()
+{
+    return selectedPlant!=nullptr;
+}
+
+void Controller::stop()
+{
+    if(isStop==false){
+        for(auto item:movables){
+            if(item!=nullptr){
+            item->stop();
+            qInfo()<<"Stop";
+
+            }
+        }
+       // randomSun->customStop();
+       // stopPic->setPos(0,0);
+       // scene->addItem(stopPic);
+        isStop=true;
+    }
+
+
+}
+
+void Controller::start()
+{
+    if(isStop==true){
+        for(auto item:movables){
+            if(item!=nullptr){
+                qInfo()<<"Start";
+            item->start();
+            }
+        }
+       // randomSun->customStart();
+      //  scene->removeItem(stopPic);
+        isStop=false;
+    }
+}
+
+bool Controller::checkIsStop()
+{
+    return isStop;
 }
 

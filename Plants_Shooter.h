@@ -8,7 +8,10 @@ class Plants_Shooter:public Plants
 public:
     Plants_Shooter(Controller *controller);
 private:
+    void customStop();
+    void customStart();
     Controller *controller;
+    QTimer* shooter_Timer;
 private slots:
     void shot();
 };

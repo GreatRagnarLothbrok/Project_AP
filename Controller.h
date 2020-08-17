@@ -8,10 +8,12 @@
 #include <QList>
 #include "Plants.h"
 #include "Show_Sun_Score.h"
+#include "Plants_RandomSun.h"
 
 class Controller
 {
     friend class View;
+
 public:
     Controller();
     ~Controller();
@@ -21,14 +23,22 @@ public:
     Plants *getSelectedPlant();
     void addToField();
     void pickShovel();
-private:
-    QGraphicsScene * scene;
-    QGraphicsRectItem * holder;
-    QList<Movable*> movables;
     Show_Sun_Score *score;
+    bool chechPlants();
+    void stop();
+    void start();
+    bool checkIsStop();
+    QList<Movable*> movables;
+    QGraphicsScene * scene;
+private:
+
+    bool isStop;
+    QGraphicsRectItem * holder;
+    QGraphicsPixmapItem *stopPic;
     Field *field;
     Plants * selectedPlant = nullptr;
     bool shovelPicked = false;
+    Plants_RandomSun*  randomSun;
 };
 
 #endif // CONTROLLER_H

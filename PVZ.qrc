@@ -6,6 +6,9 @@
         <file>BackGround/Resize.png</file>
         <file>BackGround/Shovel.png</file>
         <file>BackGround/barezombie.png</file>
+        <file>BackGround/puase.png</file>
+        <file>BackGround/stop.png</file>
+        <file>BackGround/stop.jpg</file>
     </qresource>
     <qresource prefix="/Zombi">
         <file>zombie/0.jpg</file>

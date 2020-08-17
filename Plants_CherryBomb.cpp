@@ -6,11 +6,22 @@ Plants_CherryBomb::Plants_CherryBomb():Plants(150)
 //set pixmap
     setPixmap(QPixmap(":/Plants/Plants/Cherry_Bomb.png"));
     //set timer
-        auto bobmTimer=new QTimer;
+        bobmTimer=new QTimer;
         bobmTimer->start(2000);
     //connect
     QObject::connect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));
 
+}
+
+void Plants_CherryBomb::customStop()
+{
+    QObject::disconnect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));
+}
+
+void Plants_CherryBomb::customStart()
+{
+    if(isStop)
+    QObject::connect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));
 }
 
 void Plants_CherryBomb::explosion()

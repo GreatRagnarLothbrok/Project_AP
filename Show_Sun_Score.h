@@ -6,7 +6,9 @@ class Show_Sun_Score:public QGraphicsTextItem
 {
 public:
     Show_Sun_Score();
-    void getSun();
+    void increase();
+    int getPoint();
+    void decrease(int price);
 private:
     int score;
 };

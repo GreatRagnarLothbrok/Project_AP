@@ -2,15 +2,19 @@
 #define PLATNS_SUN_H
 #include <Animation.h>
 #include <QGraphicsSceneMouseEvent>
-#include "Controller.h"
+#include<QGraphicsScene>
+#include"Show_Sun_Score.h"
 class Plants_Sun:public Animation
 {
     Q_OBJECT
 public:
-    Plants_Sun(Controller *controller,bool check);
+    Plants_Sun(Show_Sun_Score* score,bool check);
 private:
-    Controller *controller;
+    Show_Sun_Score *score;
     bool checkMove;
+    QTimer *destroyTimer;
+    void customStop();
+    void customStart();
 private slots:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void move();

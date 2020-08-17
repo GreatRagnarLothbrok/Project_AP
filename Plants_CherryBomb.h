@@ -8,6 +8,9 @@ class Plants_CherryBomb:public Plants
 public:
     Plants_CherryBomb();
 private:
+    QTimer* bobmTimer;
+    void customStop();
+    void customStart();
 private slots:
     void explosion();
     void checkColliding();

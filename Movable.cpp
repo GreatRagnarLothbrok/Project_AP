@@ -1,5 +1,5 @@
 #include "Movable.h"
-
+#include<QDebug>
 Movable::Movable(int msec) : QObject()
 {
     moveTimer = new QTimer();
@@ -17,16 +17,23 @@ void Movable::start()
         moveTimer->start(moveTimer->interval());
         QObject::connect(moveTimer,SIGNAL(timeout()),this,SLOT(move()));
         isStarted = true;
+        customStart();
     }
+
 }
 
 void Movable::stop()
 {
+
     if (isStarted) {
+
         moveTimer->stop();
         QObject::disconnect(moveTimer,SIGNAL(timeout()),this,SLOT(move()));
         customStop();
         isStarted = false;
+        customStop();
+
     }
+
 }
 

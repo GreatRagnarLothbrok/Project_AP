@@ -1,13 +1,13 @@
 #include "View.h"
-#include"CloseButton.h"
-#include"ResizeButton.h"
+#include"Button_Close.h"
+#include"Button_Resize.h"
 #include "Card.h"
 #include "Plants_Shooter.h"
 #include "Zombi.h"
 #include "Shovel.h"
 #include <QCursor>
-
-
+#include"Button_Pause.h"
+#include<QDebug>
 View::View() : QGraphicsView(), controller(new Controller)
 {
     //set Background
@@ -19,13 +19,19 @@ View::View() : QGraphicsView(), controller(new Controller)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(controller->scene);
     //set CloseButton
-    auto closeButton=new CloseButton(this);
+
+    auto closeButton=new Button_Close(this);
     closeButton->setPos(1830,20);
     controller->scene->addItem(closeButton);
     //set ResizeButton
-    auto resizeButton=new ResizeButton(this);
+    auto resizeButton=new Button_Resize(this);
     resizeButton->setPos(1710,15);
     controller->scene->addItem(resizeButton);
+    //set puaseButton
+    auto pauseButton=new Button_Pause(this);
+    pauseButton->setPos(1600,20);
+    controller->scene->addItem(pauseButton);
+
 }
 
 View::~View()

@@ -2,14 +2,17 @@
 #define PLANTS_SUNFLOWER_H
 #include "Plants.h"
 #include"Plants_Sun.h"
-#include "Controller.h"
+#include "Show_Sun_Score.h"
 class Plants_Sunflower:public Plants
 {
     Q_OBJECT
 public:
-    Plants_Sunflower(Controller *controller);
+    Plants_Sunflower(Show_Sun_Score *score);
 private:
-    Controller *controller;
+    void customStart();
+    void customStop();
+    Show_Sun_Score *score;
+    QTimer *addSunTimer;
 private slots:
     void buildSun();
 };

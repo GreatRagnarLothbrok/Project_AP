@@ -12,11 +12,14 @@ class Animation :public Movable, public QGraphicsPixmapItem
 public:
     Animation();
     ~Animation();
+    void customStop();
+    void customStart();
 protected:
     void setPicsList(const QList<QPixmap>& pics);
     void startAnimate();
     void stopAnimate();
     QTimer * animationTimer;
+    bool isStop;
 private:
     QList<QPixmap> motionPictures;
     int pictureIndex;

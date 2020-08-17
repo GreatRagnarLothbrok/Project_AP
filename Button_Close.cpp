@@ -1,6 +1,6 @@
-#include "CloseButton.h"
+#include "Button_Close.h"
 
-CloseButton::CloseButton(View *view):QGraphicsPixmapItem()
+Button_Close::Button_Close(View *view):QGraphicsPixmapItem()
 {
 //set image
     setPixmap(QPixmap(":/Background/BackGround/Close.png"));
@@ -8,7 +8,7 @@ CloseButton::CloseButton(View *view):QGraphicsPixmapItem()
     this->view=view;
 }
 
-void CloseButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Button_Close::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event->button()==Qt::LeftButton){
         view->close();

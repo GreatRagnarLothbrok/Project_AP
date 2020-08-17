@@ -7,8 +7,9 @@
 
 class View : public QGraphicsView
 {
-    Controller * controller;
 public:
+    Controller * controller;
+
     View();
     ~View();
     void mouseMoveEvent(QMouseEvent *event);

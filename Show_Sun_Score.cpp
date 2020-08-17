@@ -8,9 +8,20 @@ setDefaultTextColor(Qt::yellow);
 setFont(QFont("times",50));
 }
 
-void Show_Sun_Score::getSun()
+void Show_Sun_Score::increase()
 {
     score+=25;
     setPlainText(QString::number(score));
 
+}
+
+int Show_Sun_Score::getPoint()
+{
+    return score;
+}
+
+void Show_Sun_Score::decrease(int price)
+{
+    score-=price;
+    setPlainText(QString::number(score));
 }

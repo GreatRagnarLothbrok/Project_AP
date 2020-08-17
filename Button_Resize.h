@@ -3,10 +3,10 @@
 #include<QGraphicsPixmapItem>
 #include"View.h"
 #include<QGraphicsSceneMouseEvent>
-class ResizeButton:public QGraphicsPixmapItem
+class Button_Resize:public QGraphicsPixmapItem
 {
 public:
-    ResizeButton(View *view);
+    Button_Resize(View *view);
 private:
     View *view;
 private slots:

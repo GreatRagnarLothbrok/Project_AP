@@ -1,21 +1,47 @@
 #include "Plants_RandomSun.h"
-#include"Plants_Sun.h"
 #include<QTimer>
-Plants_RandomSun::Plants_RandomSun(Controller *controller):QObject()
+#include<QGraphicsScene>
+#include <exception>
+#include<QDebug>
+Plants_RandomSun::Plants_RandomSun(Show_Sun_Score *score,QGraphicsScene *scene):QObject(),score{score},scene{scene}
 {
-    this->controller=controller;
-
-    auto timerSun=new QTimer;
+    timerSun=new QTimer;
     timerSun->start(10000);
-    connect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
+    QObject::connect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
 
+}
+
+void Plants_RandomSun::customStop()
+{
+    QObject::disconnect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
+    for(auto sun:sunList){
+    try{
+        sun->stop();
+        }catch(...){
+            qInfo()<<"rid\n";
+        };
+    }
+}
+
+void Plants_RandomSun::customStart()
+{
+    QObject::connect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
+    for(auto sun:sunList){
+        try{
+            sun->stop();
+            }catch(...){
+            qInfo()<<"rid\n";
+        };
+
+    }
 }
 
 void Plants_RandomSun::buildSun()
 {
-int xP=800+rand()%800;
-auto sun=new Plants_Sun(controller,true);
-sun->setPos(xP,0);
-sun->start();
-controller->addItem(sun);
+    int xP=800+rand()%800;
+    auto sun=new Plants_Sun(score,true);
+    sun->setPos(xP,0);
+    sun->start();
+    scene->addItem(sun);
+    sunList.append(sun);
 }

@@ -19,6 +19,7 @@ void Shovel::mousePressEvent(QGraphicsSceneMouseEvent *event)
         if(typeid(*el) == typeid(Section)){
            auto rect = dynamic_cast<Section*>(el);
            if(!rect->isEmpty()) {
+
                rect->destroy();
                return;
            }

@@ -3,10 +3,10 @@
 #include<QGraphicsPixmapItem>
 #include<QGraphicsSceneMouseEvent>
 #include"View.h"
-class CloseButton:public QGraphicsPixmapItem
+class Button_Close:public QGraphicsPixmapItem
 {
 public:
-    CloseButton( View *view);
+    Button_Close( View *view);
 private:
     View *view;
 private slots:

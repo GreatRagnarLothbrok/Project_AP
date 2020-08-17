@@ -14,8 +14,11 @@ public:
     void stop();
 private:
     virtual void customStop() {
+    }
+    virtual void customStart(){
 
     }
+
 protected:
     QTimer * moveTimer;
     bool isStarted = false;
