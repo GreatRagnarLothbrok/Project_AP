@@ -9,9 +9,16 @@ Plants_CherryBomb::Plants_CherryBomb():Plants(150)
         bobmTimer=new QTimer;
         bobmTimer->start(2000);
     //connect
-    QObject::connect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));
+
 
 }
+
+void Plants_CherryBomb::customFunctionality()
+{
+    QObject::connect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));
+}
+
+
 
 void Plants_CherryBomb::customStop()
 {
@@ -26,12 +33,12 @@ void Plants_CherryBomb::customStart()
 
 void Plants_CherryBomb::explosion()
 {
-    QList<QGraphicsItem*> listItems=collidingItems();
+    QList<QGraphicsItem*> listItems = scene()->items(x() - 90,y() -120,x() + 100, y() + 140,Qt::IntersectsItemShape,Qt::DescendingOrder);
     for( auto item:listItems){
     if(dynamic_cast<Zombi*>(item))
       {
         delete item;
-       }
+        }
     }
     delete this;
     return;

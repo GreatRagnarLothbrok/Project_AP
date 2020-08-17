@@ -27,7 +27,6 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     zombi1->setPos(1500,650);
     scene->addItem(zombi1);
     zombi1->start();
-    movables.append(zombi1);
     isStop=false;
     field->addToScene(scene);
     //add card
@@ -77,7 +76,6 @@ void Controller::takePlant(Plants *plant)
 
     plant->setPos(QCursor::pos().x() - (plant->boundingRect().width()/2),QCursor::pos().y() - (plant->boundingRect().height()/2) );
     plant->start();
-    movables.append(plant);
     scene->addItem(plant);
     selectedPlant = plant;
 }

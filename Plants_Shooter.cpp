@@ -29,5 +29,4 @@ void Plants_Shooter::shot()
     pea->setPos(x()+60,y()+40);
     pea->start();
     scene()->addItem(pea);
-    controller->movables.append(pea);
 }

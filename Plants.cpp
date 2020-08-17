@@ -46,6 +46,7 @@ void Plants::setPosition()
                 rect->setPlant(this);
                 column=rect->getColumn();
                 row=rect->getRow();
+                customFunctionality();
                 return;
             }
         }

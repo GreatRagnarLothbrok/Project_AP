@@ -7,6 +7,7 @@ class Plants_CherryBomb:public Plants
     Q_OBJECT
 public:
     Plants_CherryBomb();
+    void customFunctionality();
 private:
     QTimer* bobmTimer;
     void customStop();

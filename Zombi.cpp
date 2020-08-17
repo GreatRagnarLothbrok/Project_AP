@@ -1,13 +1,20 @@
 #include "Zombi.h"
-
+#include <sstream>
+#include <iomanip>
+using namespace std;
 Zombi::Zombi():Animation()
 {
     //set life point
 lifePoint=4;
 //set pic
+auto func = [](int x) {
+    ostringstream stream;
+    stream << fixed << setw(4) << setfill('0') << x;
+    return QString::fromStdString(stream.str());
+};
 QList<QPixmap> qlist;
-for(int i=0;i<29;i++){
-    qlist.append(QPixmap(":/Zombi/zombie/"+QString::number(i)+".jpg"));
+for(int i=0;i<240;i++){
+    qlist.append(QPixmap(":/Zombi/ZombieWalking/Walking_"+ func(240 - i) +"_Layer-"+ QString::number(i) +".png"));
 }
 setPicsList(qlist);
 //Qtimer
@@ -24,7 +31,7 @@ void Zombi::damage()
 
 void Zombi::move()
 {
-    setPos(x()-1,y());
+    setPos(x()-0.4,y());
 }
 
 void Zombi::checkLiving()

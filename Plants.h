@@ -15,6 +15,7 @@ public:
 
     int getColumn() const;
     void setColumn(int value);
+    virtual void customFunctionality() {}
 private:
     int price;
     bool isPlaced = false;

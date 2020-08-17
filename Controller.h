@@ -28,7 +28,6 @@ public:
     void stop();
     void start();
     bool checkIsStop();
-    QList<Movable*> movables;
     QGraphicsScene * scene;
 private:
 
