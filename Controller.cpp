@@ -106,36 +106,50 @@ bool Controller::chechPlants()
 
 void Controller::stop()
 {
-    if(isStop==false){
-        for(auto item:movables){
-            if(item!=nullptr){
+//    if(isStop==false){
+//        for(auto item:movables){
+//            if(item!=nullptr){
+//            item->stop();
+//            qInfo()<<"Stop";
+
+//            }
+//        }
+//       // randomSun->customStop();
+//       // stopPic->setPos(0,0);
+//       // scene->addItem(stopPic);
+//        isStop=true;
+//    }
+    QList<QGraphicsItem*> items = scene->items();
+    for (auto & el : items) {
+        auto item = dynamic_cast<Movable*>(el);
+        if (item)
             item->stop();
-            qInfo()<<"Stop";
-
-            }
-        }
-       // randomSun->customStop();
-       // stopPic->setPos(0,0);
-       // scene->addItem(stopPic);
-        isStop=true;
     }
-
+    isStop = true;
 
 }
 
 void Controller::start()
 {
-    if(isStop==true){
-        for(auto item:movables){
-            if(item!=nullptr){
-                qInfo()<<"Start";
+//    if(isStop==true){
+//        for(auto item:movables){
+//            if(item!=nullptr){
+//                qInfo()<<"Start";
+//            item->start();
+//            }
+//        }
+//       // randomSun->customStart();
+//      //  scene->removeItem(stopPic);
+//        isStop=false;
+//    }
+
+    QList<QGraphicsItem*> items = scene->items();
+    for (auto & el : items) {
+        auto item = dynamic_cast<Movable*>(el);
+        if (item)
             item->start();
-            }
-        }
-       // randomSun->customStart();
-      //  scene->removeItem(stopPic);
-        isStop=false;
     }
+    isStop = false;
 }
 
 bool Controller::checkIsStop()
