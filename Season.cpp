@@ -1,21 +1,36 @@
 #include "Season.h"
 #include<QMessageBox>
+void Season::start()
+{
+    clean();
+    switch (level) {
+    case 1:
+        season1Start();
+        break;
+    case 2:
+        season2Start();
+        break;
+    case 3:
+        season3Start();
+        break;
+    default:
+        break;
+    }
+
+}
+
 Season::Season(Controller *controller):controller{controller}
 {
     sec=0;
     player=new QMediaPlayer;
     player->setMedia(QUrl("qrc:/music/music/lose.mp3"));
+    level=0;
 }
 
 void Season::season1Start()
 {
+    level=1;
     controller->score->restart();
-    controller->score->increase();
-    controller->score->increase();
-    controller->score->increase();
-    controller->score->increase();
-    controller->score->increase();
-    controller->score->increase();
     controller->field = new Field(700,300,1,8,controller->holder);
     controller->field->addToScene(controller->scene);
     controller->secTimer=new QTimer;
@@ -25,6 +40,7 @@ void Season::season1Start()
 
 void Season::season2Start()
 {
+    level=2;
     controller->score->restart();
     controller->field = new Field(700,300,2,8,controller->holder);
     controller->field->addToScene(controller->scene);
@@ -35,6 +51,7 @@ void Season::season2Start()
 
 void Season::season3Start()
 {
+    level=3;
     controller->score->restart();
     controller->field = new Field(700,300,3,8,controller->holder);
     controller->field->addToScene(controller->scene);
@@ -91,8 +108,8 @@ void Season::season1Function()
             // win empty
          QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season1Function()));
          sec=0;
-         clean();
          season2Start();
+         clean();
 
 
         }
@@ -150,9 +167,8 @@ void Season::season2Function()
             // win empty
          QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season2Function()));
          sec=0;
-         clean();
          season3Start();
-
+         clean();
 
         }
 

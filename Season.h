@@ -6,13 +6,14 @@ class Season:public QObject
 {
     Q_OBJECT
 public:
-
     Season(Controller *controller);
     void season1Start();
     void season2Start();
     void season3Start();
+    void start();
 
 private:
+    int level;
     int sec;
     Controller *controller;
     void secIncrease(){sec++;}

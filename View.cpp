@@ -8,6 +8,7 @@
 #include <QCursor>
 #include"Button_Pause.h"
 #include<QDebug>
+#include"Button_Reload.h"
 View::View() : QGraphicsView(), controller(new Controller)
 {
     //set Background
@@ -31,7 +32,10 @@ View::View() : QGraphicsView(), controller(new Controller)
     auto pauseButton=new Button_Pause(this);
     pauseButton->setPos(1600,20);
     controller->scene->addItem(pauseButton);
-
+    // add reload button
+    Button_Reload* button_Reload=new Button_Reload(controller);
+button_Reload->setPos(1500,20);
+controller->scene->addItem(button_Reload);
 }
 
 View::~View()

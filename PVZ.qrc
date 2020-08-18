@@ -9,6 +9,7 @@
         <file>BackGround/puase.png</file>
         <file>BackGround/stop.png</file>
         <file>BackGround/stop.jpg</file>
+        <file>BackGround/reload.png</file>
     </qresource>
     <qresource prefix="/Zombi">
         <file>zombie/0.jpg</file>

@@ -11,7 +11,7 @@
 #include<QDebug>
 #include<QMediaPlayer>
 #include"cmath"
-#include"Season.h"
+#include "Season.h"
 Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score),isStop{false}
 {
     //set scene pic
@@ -20,7 +20,7 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     addCard();
     //random sun
     randomSun=new Plants_RandomSun(score,scene);
-    Season* sea=new Season(this);
+    sea=new Season(this);
     sea->season1Start();
 //set music
     QMediaPlayer *player=new QMediaPlayer;

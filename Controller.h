@@ -11,6 +11,7 @@
 #include "Plants_RandomSun.h"
 #include"Zombi.h"
 #include"Zombi_Master.h"
+class Season;
 class Controller:public QObject
 {
     friend class View;
@@ -31,6 +32,7 @@ public:
     void start();
     bool checkIsStop();
     QGraphicsScene * scene;
+    Season* sea;
 private:
     QTimer *secTimer;
     int sec;

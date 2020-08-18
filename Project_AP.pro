@@ -19,6 +19,7 @@ SOURCES += \
     Animation.cpp \
     Button_Close.cpp \
     Button_Pause.cpp \
+    Button_Reload.cpp \
     Button_Resize.cpp \
     Card.cpp \
     Controller.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     Animation.h \
     Button_Close.h \
     Button_Pause.h \
+    Button_Reload.h \
     Button_Resize.h \
     Card.h \
     Controller.h \
