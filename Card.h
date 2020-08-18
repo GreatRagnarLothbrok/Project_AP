@@ -13,7 +13,7 @@ public:
 private:
     Controller * controller;
     char type;
-int price;
+    int price;
 };
 
 #endif // CARD_H

@@ -9,11 +9,11 @@
 #include "Plants.h"
 #include "Show_Sun_Score.h"
 #include "Plants_RandomSun.h"
-
-class Controller
+#include"Zombi.h"
+class Controller:public QObject
 {
     friend class View;
-
+Q_OBJECT
 public:
     Controller();
     ~Controller();
@@ -30,7 +30,10 @@ public:
     bool checkIsStop();
     QGraphicsScene * scene;
 private:
-
+    QTimer *secTimer;
+    int sec;
+    void addCard();
+    void setSceneController();
     bool isStop;
     QGraphicsRectItem * holder;
     QGraphicsPixmapItem *stopPic;
@@ -38,6 +41,11 @@ private:
     Plants * selectedPlant = nullptr;
     bool shovelPicked = false;
     Plants_RandomSun*  randomSun;
+    void addZombi(int height);
+    void season1Start();
+    void secIncrease(){sec++;}
+private slots:
+    void season1Function();
 };
 
 #endif // CONTROLLER_H

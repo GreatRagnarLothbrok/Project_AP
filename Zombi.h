@@ -1,7 +1,6 @@
 #ifndef ZOMBI_H
 #define ZOMBI_H
 #include "Animation.h"
-#include "Controller.h"
 class Zombi:public Animation
 {
     Q_OBJECT

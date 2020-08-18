@@ -16,7 +16,6 @@ void Plants_Sun::customStop()
 
 void Plants_Sun::customStart()
 {
-    if(isStop)
     QObject::connect(destroyTimer,SIGNAL(timeout()),this,SLOT(destroy()));
 }
 

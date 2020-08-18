@@ -32,6 +32,8 @@ void Zombi::damage()
 void Zombi::move()
 {
     setPos(x()-0.4,y());
+  //  setPos(x()-4,y());
+
 }
 
 void Zombi::checkLiving()

@@ -2,10 +2,10 @@
 #include <QFont>
 Show_Sun_Score::Show_Sun_Score():QGraphicsTextItem()
 {
-score=150;
-setPlainText(QString::number(score));
-setDefaultTextColor(Qt::yellow);
-setFont(QFont("times",50));
+    score=150;
+    setPlainText(QString::number(score));
+    setDefaultTextColor(Qt::yellow);
+    setFont(QFont("times",50));
 }
 
 void Show_Sun_Score::increase()

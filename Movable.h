@@ -12,7 +12,6 @@ public:
     virtual ~ Movable();
     void start();
     void stop();
-private:
     virtual void customStop() {
     }
     virtual void customStart(){

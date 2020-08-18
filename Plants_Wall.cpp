@@ -8,17 +8,17 @@ Plants_Wall::Plants_Wall():Plants(150)
         qlist.append(QPixmap(":/Plants/Plants/Wall/wall"+QString::number(i)+".png"));
     }
     setPicsList(qlist);
-    //setPixmap(QPixmap(":/Plants/Plants/Wall/wall0.png"));
 }
 
 void Plants_Wall::checkColliding()
-{
+{if(isPlaced){
     QList<QGraphicsItem*> listItems=collidingItems();
         for(const auto &item:listItems){
         if(dynamic_cast<Zombi*>(item))
            delete dynamic_cast<Zombi*>(item);
         }
         return;
+    }
 }
 
 void Plants_Wall::move()

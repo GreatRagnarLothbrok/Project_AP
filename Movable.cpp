@@ -17,7 +17,6 @@ void Movable::start()
         moveTimer->start(moveTimer->interval());
         QObject::connect(moveTimer,SIGNAL(timeout()),this,SLOT(move()));
         isStarted = true;
-        customStart();
     }
 
 }
@@ -29,9 +28,7 @@ void Movable::stop()
 
         moveTimer->stop();
         QObject::disconnect(moveTimer,SIGNAL(timeout()),this,SLOT(move()));
-        customStop();
         isStarted = false;
-        customStop();
 
     }
 

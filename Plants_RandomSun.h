@@ -2,6 +2,7 @@
 #define PLANTS_RANDOMSUN_H
 #include"Show_Sun_Score.h"
 #include"Plants_Sun.h"
+#include"Movable.h"
 #include <QObject>
 class Plants_RandomSun:public QObject
 {
@@ -11,7 +12,7 @@ public:
     void customStop();
     void customStart();
 private:
-    QList<Plants_Sun*> sunList;
+    QList<Movable*> sunList;
     QTimer *timerSun;
     Show_Sun_Score *score;
     QGraphicsScene *scene;

@@ -9,15 +9,17 @@ Plants_Sunflower::Plants_Sunflower(Show_Sun_Score *score):Plants(50)
     addSunTimer=new QTimer;
     addSunTimer->start(15000);
 
+}
+
+void Plants_Sunflower::customFunctionality()
+{
     QObject::connect(addSunTimer,SIGNAL(timeout()),this,SLOT(buildSun()));
 
 }
 
 void Plants_Sunflower::customStart()
 {
-    if(isStop)
     QObject::connect(addSunTimer,SIGNAL(timeout()),this,SLOT(buildSun()));
-
 }
 
 void Plants_Sunflower::customStop()

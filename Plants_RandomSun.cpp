@@ -3,6 +3,7 @@
 #include<QGraphicsScene>
 #include <exception>
 #include<QDebug>
+#include"Movable.h"
 Plants_RandomSun::Plants_RandomSun(Show_Sun_Score *score,QGraphicsScene *scene):QObject(),score{score},scene{scene}
 {
     timerSun=new QTimer;
@@ -14,26 +15,13 @@ Plants_RandomSun::Plants_RandomSun(Show_Sun_Score *score,QGraphicsScene *scene):
 void Plants_RandomSun::customStop()
 {
     QObject::disconnect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
-    for(auto sun:sunList){
-    try{
-        sun->stop();
-        }catch(...){
-            qInfo()<<"rid\n";
-        };
-    }
+
 }
 
 void Plants_RandomSun::customStart()
 {
     QObject::connect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));
-    for(auto sun:sunList){
-        try{
-            sun->stop();
-            }catch(...){
-            qInfo()<<"rid\n";
-        };
 
-    }
 }
 
 void Plants_RandomSun::buildSun()

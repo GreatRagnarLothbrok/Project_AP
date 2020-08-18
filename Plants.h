@@ -1,13 +1,14 @@
 #ifndef PLANTS_H
 #define PLANTS_H
 #include"Animation.h"
+#include"Show_Sun_Score.h"
 class Plants : public Animation
 {
     Q_OBJECT
 public:
     Plants(int price);
     int getPrice();
-    void setPosition();
+    void setPosition(Show_Sun_Score *score);
     void setPlaced(){isPlaced = true;}
 
     int getRow() const;
@@ -16,11 +17,15 @@ public:
     int getColumn() const;
     void setColumn(int value);
     virtual void customFunctionality() {}
+protected:
+    bool isPlaced = false;
+
 private:
     int price;
-    bool isPlaced = false;
+    //bool isPlaced = false;
     int row;
     int column;
+     Show_Sun_Score* score;
 protected slots:
     virtual void checkColliding();
 private slots:

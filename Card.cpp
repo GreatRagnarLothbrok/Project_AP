@@ -24,10 +24,9 @@ Card::Card(Controller * controller, char type) : controller(controller), type(ty
 
 void Card::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if(!controller->checkIsStop()){
     if (type == 0) {
         if(controller->score->getPoint()>=100){
-        controller->takePlant(new Plants_Shooter(controller));
+        controller->takePlant(new Plants_Shooter());
         price=100;
         }
     }
@@ -49,7 +48,7 @@ void Card::mousePressEvent(QGraphicsSceneMouseEvent *event)
         price=150;
         }
     }
-}
+
 
 }
 
@@ -57,7 +56,7 @@ void Card::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if(controller->chechPlants()){
     controller->addToField();
-    controller->score->decrease(price);
+  //  controller->score->decrease(price);
     }
 }
 

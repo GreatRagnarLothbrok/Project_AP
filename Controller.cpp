@@ -1,5 +1,4 @@
 #include "Controller.h"
-#include"Zombi.h"
 #include"Plants.h"
 #include"Plants_Pea.h"
 #include"Plants_Shooter.h"
@@ -10,49 +9,23 @@
 #include "Card.h"
 #include <QCursor>
 #include<QDebug>
-Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score)
+#include"cmath"
+Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score),isStop{false}
 {
-    auto bar = new QGraphicsPixmapItem(QPixmap(":/Background/BackGround/barezombie.png"));
-    addItem(bar);
-    score->setPos(0,100);
-    scene->addItem(score);
-    holder = new QGraphicsRectItem(0,0,scene->width(),scene->height());
-    field = new Field(700,300,5,8,holder);
-    //set picStop
-    stopPic=new QGraphicsPixmapItem;
-    stopPic->setPixmap(QPixmap(":/Background/BackGround/stop.png"));
-    stopPic->setPos(0,0);
-    //add zombi
-    auto zombi1=new Zombi;
-    zombi1->setPos(1500,650);
-    scene->addItem(zombi1);
-    zombi1->start();
-    isStop=false;
-    field->addToScene(scene);
+    //set scene pic
+    setSceneController();
+    //field
+   // field->addToScene(scene);
     //add card
-    auto shooterCard = new Card(this);
-    auto sunflowerCard = new Card(this,1);
-    auto walnutCard = new Card(this,2);
-    auto cherryCard = new Card(this,3);
-    shooterCard->setPos(150,0);
-    sunflowerCard->setPos(300,0);
-    walnutCard->setPos(450,0);
-    cherryCard->setPos(600,0);
-    addItem(shooterCard);
-    addItem(sunflowerCard);
-    addItem(walnutCard);
-    addItem(cherryCard);
-    //add shovel
-    auto shovel = new Shovel(this,holder);
-    shovel->setPos(900,0);
-    addItem(shovel);
+    addCard();
     //random sun
     randomSun=new Plants_RandomSun(score,scene);
-
-//auto sunFlower=new Plants_Wall();
-//sunFlower->setPos(200,600);
-//sunFlower->start();
-//scene->addItem(sunFlower);
+//    auto zombi=new Zombi;
+//    zombi->setPos(1500,250);
+//    zombi->start();
+//    scene->addItem(zombi);
+    sec=45;
+    season1Start();
 }
 
 Controller::~Controller()
@@ -87,7 +60,8 @@ Plants *Controller::getSelectedPlant()
 
 void Controller::addToField()
 {
-    selectedPlant->setPosition();
+
+    selectedPlant->setPosition(score);
     selectedPlant->setPlaced();
     selectedPlant = nullptr;
 }
@@ -104,54 +78,130 @@ bool Controller::chechPlants()
 
 void Controller::stop()
 {
-//    if(isStop==false){
-//        for(auto item:movables){
-//            if(item!=nullptr){
-//            item->stop();
-//            qInfo()<<"Stop";
-
-//            }
-//        }
-//       // randomSun->customStop();
-//       // stopPic->setPos(0,0);
-//       // scene->addItem(stopPic);
-//        isStop=true;
-//    }
     QList<QGraphicsItem*> items = scene->items();
     for (auto & el : items) {
         auto item = dynamic_cast<Movable*>(el);
-        if (item)
+        if (item){
             item->stop();
+            item->customStop();
+        }
     }
+    randomSun->customStop();
     isStop = true;
 
 }
 
 void Controller::start()
 {
-//    if(isStop==true){
-//        for(auto item:movables){
-//            if(item!=nullptr){
-//                qInfo()<<"Start";
-//            item->start();
-//            }
-//        }
-//       // randomSun->customStart();
-//      //  scene->removeItem(stopPic);
-//        isStop=false;
-//    }
-
     QList<QGraphicsItem*> items = scene->items();
     for (auto & el : items) {
         auto item = dynamic_cast<Movable*>(el);
-        if (item)
+        if (item){
             item->start();
+            item->customStart();
+        }
     }
+    randomSun->customStart();
     isStop = false;
 }
 
 bool Controller::checkIsStop()
 {
     return isStop;
+}
+
+void Controller::addCard()
+{
+    auto shooterCard = new Card(this);
+    auto sunflowerCard = new Card(this,1);
+    auto walnutCard = new Card(this,2);
+    auto cherryCard = new Card(this,3);
+    shooterCard->setPos(150,0);
+    sunflowerCard->setPos(300,0);
+    walnutCard->setPos(450,0);
+    cherryCard->setPos(600,0);
+    addItem(shooterCard);
+    addItem(sunflowerCard);
+    addItem(walnutCard);
+    addItem(cherryCard);
+    //add shovel
+
+    auto shovel = new Shovel(this,holder);
+    shovel->setPos(900,0);
+    addItem(shovel);
+}
+
+void Controller::setSceneController()
+{
+    //set scene pic
+    auto bar = new QGraphicsPixmapItem(QPixmap(":/Background/BackGround/barezombie.png"));
+    addItem(bar);
+    score->setPos(0,100);
+    scene->addItem(score);
+    holder = new QGraphicsRectItem(0,0,scene->width(),scene->height());
+  //  field = new Field(700,300,5,8,holder);
+    //set picStop
+    stopPic=new QGraphicsPixmapItem;
+    stopPic->setPixmap(QPixmap(":/Background/BackGround/stop.png"));
+    stopPic->setPos(0,0);
+}
+
+void Controller::addZombi(int height)
+{
+    auto zombi=new Zombi;
+    zombi->setPos(scene->width(),height);
+    zombi->start();
+    scene->addItem(zombi);
+\
+}
+
+void Controller::season1Start()
+{
+    field = new Field(700,300,1,9,holder);
+    field->addToScene(scene);
+    secTimer=new QTimer;
+    secTimer->start(1000);
+    QObject::connect(secTimer,SIGNAL(timeout()),this,SLOT(season1Function()));
+
+}
+
+void Controller::season1Function()
+{
+    secIncrease();
+    if(sec>=50&&sec<=60){
+        if(sec==50)
+            addZombi(250);
+        else if(sec==54)
+            addZombi(250);
+        else if(sec==57)
+            addZombi(250);
+        else if(sec==59)
+            addZombi(250);
+        else if(sec==60)
+            addZombi(250);
+
+    }
+    else if(sec>60){
+        int num=0;
+        QList<QGraphicsItem*> items = scene->items();
+        for(auto &item:items){
+            auto zombi=dynamic_cast<Zombi*>(item);
+            if(zombi){
+                if(zombi->x()<=0){
+                    //lose empty
+                  break;
+                }
+                num++;
+
+            }
+
+        }
+        if(num==0)
+        {
+            // win empty
+
+        }
+
+    }
 }
 

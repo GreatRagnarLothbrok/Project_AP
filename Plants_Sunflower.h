@@ -8,6 +8,7 @@ class Plants_Sunflower:public Plants
     Q_OBJECT
 public:
     Plants_Sunflower(Show_Sun_Score *score);
+    void customFunctionality();
 private:
     void customStart();
     void customStop();

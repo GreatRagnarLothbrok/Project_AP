@@ -2,10 +2,8 @@
 #include"Zombi.h"
 #include "Section.h"
 #include <QDebug>
-Plants::Plants(int price):Animation()
+Plants::Plants(int price):Animation(),price{price}
 {
-//set pic
-this->price=price;
 //Timer
     auto livingTimer=new QTimer;
     livingTimer->start(50);
@@ -34,8 +32,9 @@ void Plants::move()
 //empty
 }
 
-void Plants::setPosition()
+void Plants::setPosition(Show_Sun_Score *score)
 {
+    this->score=score;
     QList<QGraphicsItem*> items = collidingItems();
     for (auto el : items) {
         if (typeid(*el) == typeid(Section)) {
@@ -47,6 +46,7 @@ void Plants::setPosition()
                 column=rect->getColumn();
                 row=rect->getRow();
                 customFunctionality();
+                score->decrease(getPrice());
                 return;
             }
         }
@@ -76,5 +76,5 @@ void Plants::setColumn(int value)
 
 void Plants::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    setPosition();
+    setPosition(score);
 }
