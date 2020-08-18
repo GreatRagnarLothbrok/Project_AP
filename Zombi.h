@@ -7,7 +7,7 @@ class Zombi:public Animation
 public:
     Zombi();
     void damage();
-private:
+protected:
     int lifePoint;
 private slots:
     void move();

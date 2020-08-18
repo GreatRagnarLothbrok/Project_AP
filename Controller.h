@@ -10,9 +10,11 @@
 #include "Show_Sun_Score.h"
 #include "Plants_RandomSun.h"
 #include"Zombi.h"
+#include"Zombi_Master.h"
 class Controller:public QObject
 {
     friend class View;
+    friend class Season;
 Q_OBJECT
 public:
     Controller();
@@ -41,7 +43,7 @@ private:
     Plants * selectedPlant = nullptr;
     bool shovelPicked = false;
     Plants_RandomSun*  randomSun;
-    void addZombi(int height);
+    void addZombi(int height,bool zombi_type);
     void season1Start();
     void secIncrease(){sec++;}
 private slots:

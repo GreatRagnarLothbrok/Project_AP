@@ -32,11 +32,13 @@ SOURCES += \
     Plants_Sun.cpp \
     Plants_Sunflower.cpp \
     Plants_Wall.cpp \
+    Season.cpp \
     Section.cpp \
     Shovel.cpp \
     Show_Sun_Score.cpp \
     View.cpp \
     Zombi.cpp \
+    Zombi_Master.cpp \
     main.cpp \
 
 HEADERS += \
@@ -56,11 +58,13 @@ HEADERS += \
     Plants_Sun.h \
     Plants_Sunflower.h \
     Plants_Wall.h \
+    Season.h \
     Section.h \
     Shovel.h \
     Show_Sun_Score.h \
     View.h \
-    Zombi.h
+    Zombi.h \
+    Zombi_Master.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

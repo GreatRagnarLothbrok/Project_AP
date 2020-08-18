@@ -18,7 +18,7 @@ void Button_Pause::mousePressEvent(QGraphicsSceneMouseEvent *event)
         setPos(900,500);
         scenePause->addItem(this);
         view->setScene(scenePause);
-        view->setBackgroundBrush(QBrush(QImage(":/Background/BackGround/stop.jpg")));
+        view->setBackgroundBrush(QBrush(QImage(":/Background/BackGround/stop.png")));
 
     }
     else{

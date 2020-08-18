@@ -146,9 +146,14 @@ void Controller::setSceneController()
     stopPic->setPos(0,0);
 }
 
-void Controller::addZombi(int height)
+void Controller::addZombi(int height,bool zombi_type)
 {
-    auto zombi=new Zombi;
+    Zombi* zombi;
+    if(zombi_type)
+         zombi=new Zombi;
+    else
+         zombi=new Zombi_Master;
+
     zombi->setPos(scene->width(),height);
     zombi->start();
     scene->addItem(zombi);
@@ -170,15 +175,15 @@ void Controller::season1Function()
     secIncrease();
     if(sec>=50&&sec<=60){
         if(sec==50)
-            addZombi(250);
+            addZombi(250,false);
         else if(sec==54)
-            addZombi(250);
+            addZombi(250,false);
         else if(sec==57)
-            addZombi(250);
+            addZombi(250,false);
         else if(sec==59)
-            addZombi(250);
+            addZombi(250,false);
         else if(sec==60)
-            addZombi(250);
+            addZombi(250,false);
 
     }
     else if(sec>60){
