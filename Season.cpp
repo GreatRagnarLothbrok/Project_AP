@@ -1,5 +1,6 @@
 #include "Season.h"
 #include<QMessageBox>
+#include "Card.h"
 void Season::start()
 {
     clean();
@@ -40,6 +41,9 @@ void Season::season1Start()
 
 void Season::season2Start()
 {
+    auto walnutCard = new Card(controller,2);
+    walnutCard->setPos(450,0);
+    controller->addItem(walnutCard);
     level=2;
     controller->score->restart();
     controller->field = new Field(700,300,2,8,controller->holder);
@@ -51,6 +55,10 @@ void Season::season2Start()
 
 void Season::season3Start()
 {
+    auto cherryCard = new Card(controller,3);
+    cherryCard->setPos(600,0);
+   controller->scene->addItem(cherryCard);
+
     level=3;
     controller->score->restart();
     controller->field = new Field(700,300,3,8,controller->holder);
@@ -100,6 +108,7 @@ void Season::season1Function()
                     show_LoseOrWin->lose();
                     show_LoseOrWin->setPos(900,500);
                     controller->scene->addItem(show_LoseOrWin);
+                    QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season1Function()));
                   break;
                 }
                 num++;
@@ -114,7 +123,7 @@ void Season::season1Function()
          sec=0;
          clean();
          show_LoseOrWin=new Show_LoseOrWin;
-         show_LoseOrWin->lose();
+         show_LoseOrWin->win();
          show_LoseOrWin->setPos(900,500);
          controller->scene->addItem(show_LoseOrWin);
          season2Start();
@@ -162,7 +171,14 @@ void Season::season2Function()
                 if(zombi->x()<=0){
                     //lose empty
                     player->play();
+                    show_LoseOrWin=new Show_LoseOrWin;
+                    show_LoseOrWin->lose();
+                    show_LoseOrWin->setPos(900,500);
+                    controller->scene->addItem(show_LoseOrWin);
+                    QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season2Function()));
+
                     clean();
+
                   break;
                 }
                 num++;
@@ -175,6 +191,10 @@ void Season::season2Function()
             // win empty
          QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season2Function()));
          sec=0;
+         show_LoseOrWin=new Show_LoseOrWin;
+         show_LoseOrWin->win();
+         show_LoseOrWin->setPos(900,500);
+         controller->scene->addItem(show_LoseOrWin);
          season3Start();
          clean();
 
@@ -229,6 +249,11 @@ void Season::season3Function()
             if(zombi){
                 if(zombi->x()<=0){
                     player->play();
+                    show_LoseOrWin=new Show_LoseOrWin;
+                    show_LoseOrWin->lose();
+                    show_LoseOrWin->setPos(900,500);
+                    controller->scene->addItem(show_LoseOrWin);
+                    QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season3Function()));
                     clean();
                   break;
                 }
@@ -240,6 +265,10 @@ void Season::season3Function()
         if(num==0)
         {
             // win empty
+            show_LoseOrWin=new Show_LoseOrWin;
+            show_LoseOrWin->win();
+            show_LoseOrWin->setPos(900,500);
+            controller->scene->addItem(show_LoseOrWin);
          QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season3Function()));
          clean();
 

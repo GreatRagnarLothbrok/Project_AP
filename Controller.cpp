@@ -26,6 +26,7 @@ Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Sh
     QMediaPlayer *player=new QMediaPlayer;
     player->setMedia(QUrl("qrc:/music/music/backgeound.mp3"));
     player->play();
+
 }
 
 Controller::~Controller()
@@ -122,8 +123,8 @@ void Controller::addCard()
     cherryCard->setPos(600,0);
     addItem(shooterCard);
     addItem(sunflowerCard);
-    addItem(walnutCard);
-    addItem(cherryCard);
+   // addItem(walnutCard);
+//    addItem(cherryCard);
     //add shovel
 
     auto shovel = new Shovel(this,holder);
@@ -162,7 +163,6 @@ void Controller::addZombi(int row,bool zombi_type,int lifePoint)
     scene->addItem(zombi);
 \
 }
-
 
 
 
