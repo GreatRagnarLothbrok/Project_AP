@@ -96,6 +96,10 @@ void Season::season1Function()
                     //lose empty
                     player->play();
                     clean();
+                    show_LoseOrWin=new Show_LoseOrWin;
+                    show_LoseOrWin->lose();
+                    show_LoseOrWin->setPos(900,500);
+                    controller->scene->addItem(show_LoseOrWin);
                   break;
                 }
                 num++;
@@ -108,8 +112,12 @@ void Season::season1Function()
             // win empty
          QObject::disconnect(controller->secTimer,SIGNAL(timeout()),this,SLOT(season1Function()));
          sec=0;
-         season2Start();
          clean();
+         show_LoseOrWin=new Show_LoseOrWin;
+         show_LoseOrWin->lose();
+         show_LoseOrWin->setPos(900,500);
+         controller->scene->addItem(show_LoseOrWin);
+         season2Start();
 
 
         }
@@ -239,4 +247,3 @@ void Season::season3Function()
 
     }
 }
-

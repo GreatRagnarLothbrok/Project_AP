@@ -34,8 +34,8 @@ View::View() : QGraphicsView(), controller(new Controller)
     controller->scene->addItem(pauseButton);
     // add reload button
     Button_Reload* button_Reload=new Button_Reload(controller);
-button_Reload->setPos(1500,20);
-controller->scene->addItem(button_Reload);
+    button_Reload->setPos(1400,20);
+    controller->scene->addItem(button_Reload);
 }
 
 View::~View()

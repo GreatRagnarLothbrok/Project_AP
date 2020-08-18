@@ -16,12 +16,12 @@ Plants_Sun::~Plants_Sun()
 
 void Plants_Sun::customStop()
 {
-    QObject::disconnect(destroyTimer,SIGNAL(timeout()),this,SLOT(destroy()));
+    destroyTimer->stop();
 }
 
 void Plants_Sun::customStart()
 {
-    QObject::connect(destroyTimer,SIGNAL(timeout()),this,SLOT(destroy()));
+    destroyTimer->start();
 }
 
 void Plants_Sun::mousePressEvent(QGraphicsSceneMouseEvent *event)

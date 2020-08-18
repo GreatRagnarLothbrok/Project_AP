@@ -24,12 +24,12 @@ void Plants_Sunflower::customFunctionality()
 
 void Plants_Sunflower::customStart()
 {
-    QObject::connect(addSunTimer,SIGNAL(timeout()),this,SLOT(buildSun()));
+    addSunTimer->start();
 }
 
 void Plants_Sunflower::customStop()
 {
-    QObject::disconnect(addSunTimer,SIGNAL(timeout()),this,SLOT(buildSun()));
+    addSunTimer->stop();
 
 }
 

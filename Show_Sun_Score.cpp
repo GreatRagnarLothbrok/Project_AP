@@ -2,7 +2,7 @@
 #include <QFont>
 Show_Sun_Score::Show_Sun_Score():QGraphicsTextItem()
 {
-    score=150;
+    score=0;
     setPlainText(QString::number(score));
     setDefaultTextColor(Qt::yellow);
     setFont(QFont("times",50));

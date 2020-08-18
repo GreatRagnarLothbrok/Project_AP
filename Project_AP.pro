@@ -36,6 +36,7 @@ SOURCES += \
     Season.cpp \
     Section.cpp \
     Shovel.cpp \
+    Show_LoseOrWin.cpp \
     Show_Sun_Score.cpp \
     View.cpp \
     Zombi.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
     Season.h \
     Section.h \
     Shovel.h \
+    Show_LoseOrWin.h \
     Show_Sun_Score.h \
     View.h \
     Zombi.h \
