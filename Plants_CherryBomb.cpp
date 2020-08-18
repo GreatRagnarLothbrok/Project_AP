@@ -13,6 +13,13 @@ Plants_CherryBomb::Plants_CherryBomb():Plants(150)
 
 }
 
+Plants_CherryBomb::~Plants_CherryBomb()
+{
+    delete bobmTimer;
+
+}
+
+
 void Plants_CherryBomb::customFunctionality()
 {
     QObject::connect(bobmTimer,SIGNAL(timeout()),this,SLOT(explosion()));

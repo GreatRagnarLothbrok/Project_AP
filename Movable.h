@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
-
+#include<QMediaPlayer>
 class Movable :public QObject
 {
     Q_OBJECT
@@ -17,6 +17,7 @@ public:
     virtual void customStart(){
 
     }
+
 
 protected:
     QTimer * moveTimer;

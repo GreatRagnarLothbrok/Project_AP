@@ -6,6 +6,8 @@ class Plants_Pea:public Plants
 {
 public:
     Plants_Pea();
+    ~Plants_Pea();
+
 protected slots:
     void checkColliding();
     void move();

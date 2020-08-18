@@ -7,8 +7,14 @@ Plants_Shooter::Plants_Shooter():Plants(100)
     //set pic
     setPixmap(QPixmap(":/Plants/Plants/shooter.png"));
     //set timer
-     shooter_Timer=new QTimer;
+    shooter_Timer=new QTimer;
     shooter_Timer->start(1000);
+
+}
+
+Plants_Shooter::~Plants_Shooter()
+{
+    delete shooter_Timer;
 
 }
 
@@ -40,6 +46,9 @@ void Plants_Shooter::shot()
     pea->setPos(x()+60,y()+40);
     pea->start();
     scene()->addItem(pea);
+    QMediaPlayer *player=new QMediaPlayer;
+    player->setMedia(QUrl("qrc:/music/music/shot.mp3"));
+    player->play();
     break;
     }
     }

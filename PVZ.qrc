@@ -551,4 +551,14 @@
         <file>Cards/SunflowerCard.png</file>
         <file>Cards/WalnutCard.png</file>
     </qresource>
+    <qresource prefix="/music">
+        <file>music/zombi.mp3</file>
+        <file>music/backgeound.mp3</file>
+        <file>music/take_Plant.mp3</file>
+        <file>music/lose.mp3</file>
+        <file>music/zombi_die.mp3</file>
+        <file>music/shot.mp3</file>
+        <file>music/get_Sun.mp3</file>
+        <file>music/colliding.mp3</file>
+    </qresource>
 </RCC>

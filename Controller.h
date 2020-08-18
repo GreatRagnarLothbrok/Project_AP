@@ -43,11 +43,9 @@ private:
     Plants * selectedPlant = nullptr;
     bool shovelPicked = false;
     Plants_RandomSun*  randomSun;
-    void addZombi(int height,bool zombi_type);
-    void season1Start();
+    void addZombi(int height,bool zombi_type,int lifePoint);
     void secIncrease(){sec++;}
-private slots:
-    void season1Function();
+
 };
 
 #endif // CONTROLLER_H

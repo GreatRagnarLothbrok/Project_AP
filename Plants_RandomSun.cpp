@@ -12,6 +12,11 @@ Plants_RandomSun::Plants_RandomSun(Show_Sun_Score *score,QGraphicsScene *scene):
 
 }
 
+Plants_RandomSun::~Plants_RandomSun()
+{
+ delete timerSun;
+}
+
 void Plants_RandomSun::customStop()
 {
     QObject::disconnect(timerSun,SIGNAL(timeout()),this,SLOT(buildSun()));

@@ -56,7 +56,6 @@ void Card::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if(controller->chechPlants()){
     controller->addToField();
-  //  controller->score->decrease(price);
     }
 }
 

@@ -9,6 +9,7 @@ class Plants_RandomSun:public QObject
 Q_OBJECT
 public:
     Plants_RandomSun(Show_Sun_Score *score,QGraphicsScene *scene);
+    ~Plants_RandomSun();
     void customStop();
     void customStart();
 private:

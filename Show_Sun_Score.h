@@ -9,6 +9,7 @@ public:
     void increase();
     int getPoint();
     void decrease(int price);
+    void restart();
 private:
     int score;
 };

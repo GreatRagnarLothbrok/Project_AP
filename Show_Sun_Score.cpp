@@ -25,3 +25,9 @@ void Show_Sun_Score::decrease(int price)
     score-=price;
     setPlainText(QString::number(score));
 }
+
+void Show_Sun_Score::restart()
+{
+    score=0;
+    setPlainText(QString::number(score));
+}

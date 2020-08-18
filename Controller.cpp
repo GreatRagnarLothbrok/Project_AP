@@ -9,23 +9,23 @@
 #include "Card.h"
 #include <QCursor>
 #include<QDebug>
+#include<QMediaPlayer>
 #include"cmath"
+#include"Season.h"
 Controller::Controller() : scene(new QGraphicsScene(0,0,1920,1080)),score(new Show_Sun_Score),isStop{false}
 {
     //set scene pic
     setSceneController();
-    //field
-   // field->addToScene(scene);
     //add card
     addCard();
     //random sun
     randomSun=new Plants_RandomSun(score,scene);
-//    auto zombi=new Zombi;
-//    zombi->setPos(1500,250);
-//    zombi->start();
-//    scene->addItem(zombi);
-    sec=45;
-    season1Start();
+    Season* sea=new Season(this);
+    sea->season1Start();
+//set music
+    QMediaPlayer *player=new QMediaPlayer;
+    player->setMedia(QUrl("qrc:/music/music/backgeound.mp3"));
+    player->play();
 }
 
 Controller::~Controller()
@@ -146,67 +146,23 @@ void Controller::setSceneController()
     stopPic->setPos(0,0);
 }
 
-void Controller::addZombi(int height,bool zombi_type)
+void Controller::addZombi(int row,bool zombi_type,int lifePoint)
 {
     Zombi* zombi;
-    if(zombi_type)
-         zombi=new Zombi;
-    else
-         zombi=new Zombi_Master;
+    if(zombi_type){
+         zombi=new Zombi(lifePoint,row-1);
+         zombi->setPos(scene->width(),150+row*100);
+    }
+    else{
+         zombi=new Zombi_Master(lifePoint,row-1);
+         zombi->setPos(scene->width(),110+row*100);
+    }
 
-    zombi->setPos(scene->width(),height);
     zombi->start();
     scene->addItem(zombi);
 \
 }
 
-void Controller::season1Start()
-{
-    field = new Field(700,300,1,9,holder);
-    field->addToScene(scene);
-    secTimer=new QTimer;
-    secTimer->start(1000);
-    QObject::connect(secTimer,SIGNAL(timeout()),this,SLOT(season1Function()));
 
-}
 
-void Controller::season1Function()
-{
-    secIncrease();
-    if(sec>=50&&sec<=60){
-        if(sec==50)
-            addZombi(250,false);
-        else if(sec==54)
-            addZombi(250,false);
-        else if(sec==57)
-            addZombi(250,false);
-        else if(sec==59)
-            addZombi(250,false);
-        else if(sec==60)
-            addZombi(250,false);
-
-    }
-    else if(sec>60){
-        int num=0;
-        QList<QGraphicsItem*> items = scene->items();
-        for(auto &item:items){
-            auto zombi=dynamic_cast<Zombi*>(item);
-            if(zombi){
-                if(zombi->x()<=0){
-                    //lose empty
-                  break;
-                }
-                num++;
-
-            }
-
-        }
-        if(num==0)
-        {
-            // win empty
-
-        }
-
-    }
-}
 

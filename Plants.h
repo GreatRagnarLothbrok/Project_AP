@@ -7,6 +7,7 @@ class Plants : public Animation
     Q_OBJECT
 public:
     Plants(int price);
+    ~Plants();
     int getPrice();
     void setPosition(Show_Sun_Score *score);
     void setPlaced(){isPlaced = true;}
@@ -21,6 +22,7 @@ protected:
     bool isPlaced = false;
 
 private:
+    QTimer * livingTimer;
     int price;
     //bool isPlaced = false;
     int row;

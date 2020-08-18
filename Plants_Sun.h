@@ -9,6 +9,7 @@ class Plants_Sun:public Animation
     Q_OBJECT
 public:
     Plants_Sun(Show_Sun_Score* score,bool check);
+    ~Plants_Sun();
 private:
     Show_Sun_Score *score;
     bool checkMove;

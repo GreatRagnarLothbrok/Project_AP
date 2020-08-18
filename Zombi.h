@@ -5,10 +5,14 @@ class Zombi:public Animation
 {
     Q_OBJECT
 public:
-    Zombi();
+    Zombi(int lifPoint,int row);
     void damage();
-protected:
+    int getRow() const;
+    void setRow(int value);
+
+private:
     int lifePoint;
+    int row;
 private slots:
     void move();
     void checkLiving();

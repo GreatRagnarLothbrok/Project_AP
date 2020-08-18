@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 using namespace  std;
-Zombi_Master::Zombi_Master():Zombi()
+Zombi_Master::Zombi_Master(int life,int row):Zombi(life,row)
 {
     auto func = [](int x) {
         ostringstream stream;

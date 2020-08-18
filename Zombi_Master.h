@@ -5,7 +5,7 @@
 class Zombi_Master:public Zombi
 {
 public:
-    Zombi_Master();
+    Zombi_Master(int life,int row);
 };
 
 #endif // ZOMBI_MASTER_H

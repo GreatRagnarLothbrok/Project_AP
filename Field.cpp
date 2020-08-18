@@ -7,7 +7,7 @@ Field::Field(int x, int y,int row,int column,QGraphicsRectItem * parent): posX(x
         rects[i] = new Section[column];
         for (int j = 0;j < column;++j) {
             rects[i][j].setPos(x,y);
-            rects[i][j].setPen(QPen(QBrush(Qt::black),0));
+            rects[i][j].setPen(QPen(QBrush(Qt::black),-1));
             rects[i][j].setRow(i); rects[i][j].setColumn(j);
             rects[i][j].setParentItem(parent);
             x += 100;

@@ -6,6 +6,11 @@ Plants_Pea::Plants_Pea():Plants(0)
     setPixmap(QPixmap(":/Plants/Plants/pea.png"));
 }
 
+Plants_Pea::~Plants_Pea()
+{
+
+}
+
 void Plants_Pea::checkColliding()
 {
     QList<QGraphicsItem*> listItems=collidingItems();
@@ -13,6 +18,9 @@ void Plants_Pea::checkColliding()
     if(dynamic_cast<Zombi*>(item))
     {
         dynamic_cast<Zombi*>(item)->damage();
+        QMediaPlayer *player=new QMediaPlayer;
+        player->setMedia(QUrl("qrc:/music/music/colliding.mp3"));
+        player->play();
         delete this;
         return;
     }

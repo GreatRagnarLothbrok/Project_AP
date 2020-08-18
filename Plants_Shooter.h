@@ -7,6 +7,7 @@ class Plants_Shooter:public Plants
     Q_OBJECT
 public:
     Plants_Shooter();
+    ~Plants_Shooter();
     void customFunctionality();
 private:
     void customStop();
