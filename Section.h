@@ -3,10 +3,11 @@
 
 #include "Plants.h"
 #include <QGraphicsRectItem>
+#include <QObject>
 
-
-class Section : public QGraphicsRectItem
+class Section : public QObject, public QGraphicsRectItem
 {
+    Q_OBJECT
 public:
     Section();
     int getRow() const;
@@ -20,6 +21,8 @@ private:
     int row;
     int column;
     Plants * plant = nullptr;
+public slots:
+    void removePlant();
 };
 
 #endif // RECT_H

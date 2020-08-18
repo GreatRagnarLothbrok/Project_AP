@@ -32,6 +32,8 @@ private slots:
     void move();
 public slots:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent * event);
+signals:
+    void plantRemoved();
 };
 
 #endif // PLANTS_H

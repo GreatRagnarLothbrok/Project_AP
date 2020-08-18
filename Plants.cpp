@@ -21,6 +21,7 @@ void Plants::checkColliding()
     for( auto item:listItems){
         if(dynamic_cast<Zombi*>(item)&&isPlaced)
             {
+                emit plantRemoved();
                 delete this;
                 return;
         }

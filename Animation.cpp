@@ -40,7 +40,7 @@ void Animation::setPicsList(const QList<QPixmap> &pics)
 void Animation::startAnimate()
 {
     if(!animationStarted) {
-        animationTimer->start(50);
+        animationTimer->start(33);
         QObject::connect(animationTimer,SIGNAL(timeout()),this,SLOT(animate()));
         animationStarted = true;
     }

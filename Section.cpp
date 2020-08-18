@@ -19,6 +19,7 @@ void Section::setColumn(int value)
 
 void Section::setPlant(Plants *value)
 {
+    QObject::connect(value,SIGNAL(plantRemoved()),this,SLOT(removePlant()));
     plant = value;
 }
 
@@ -28,6 +29,11 @@ void Section::destroy()
         delete plant;
         plant = nullptr;
     }
+}
+
+void Section::removePlant()
+{
+    plant = nullptr;
 }
 
 int Section::getRow() const

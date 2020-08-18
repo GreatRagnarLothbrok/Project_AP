@@ -13,7 +13,7 @@ auto func = [](int x) {
     return QString::fromStdString(stream.str());
 };
 QList<QPixmap> qlist;
-for(int i=0;i<240;i++){
+for(int i=1;i<=240;i++){
     qlist.append(QPixmap(":/Zombi/ZombieWalking/Walking_"+ func(240 - i) +"_Layer-"+ QString::number(i) +".png"));
 }
 setPicsList(qlist);
